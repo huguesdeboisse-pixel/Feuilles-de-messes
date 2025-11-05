@@ -84,6 +84,115 @@ footer{opacity:.7;text-align:center;font-size:.9rem;margin:16px 0}
 }
 </style>
 </head>
+<script>
+// ===========================
+// 🔹 CALCUL DU TEMPS LITURGIQUE
+// ===========================
+
+// 📅 Algorithme de Butcher : calcule la date de Pâques
+function datePaques(annee) {
+  const a = annee % 19;
+  const b = Math.floor(annee / 100);
+  const c = annee % 100;
+  const d = Math.floor(b / 4);
+  const e = b % 4;
+  const f = Math.floor((b + 8) / 25);
+  const g = Math.floor((b - f + 1) / 3);
+  const h = (19 * a + b - d - g + 15) % 30;
+  const i = Math.floor(c / 4);
+  const k = c % 4;
+  const l = (32 + 2 * e + 2 * i - h - k) % 7;
+  const m = Math.floor((a + 11 * h + 22 * l) / 451);
+  const mois = Math.floor((h + l - 7 * m + 114) / 31);
+  const jour = ((h + l - 7 * m + 114) % 31) + 1;
+  return new Date(annee, mois - 1, jour);
+}
+
+// 📖 Fonction principale : calcule le temps liturgique selon la forme du rite
+function determinerTempsLiturgique(date = new Date(), rite = "ordinaire") {
+  const annee = date.getFullYear();
+  const paques = datePaques(annee);
+
+  // Calcul des dates clés
+  const mercrediCendres = new Date(paques); mercrediCendres.setDate(paques.getDate() - 46);
+  const ascension = new Date(paques); ascension.setDate(paques.getDate() + 39);
+  const pentecote = new Date(paques); pentecote.setDate(paques.getDate() + 49);
+  const trinite = new Date(paques); trinite.setDate(paques.getDate() + 56);
+  const christRoi = new Date(paques); christRoi.setDate(paques.getDate() + 238); // approximation
+
+  // Avent (dimanche le plus proche du 30 nov.)
+  const noel = new Date(annee, 11, 25);
+  const premierAvent = new Date(noel);
+  const jourNoel = noel.getDay();
+  premierAvent.setDate(noel.getDate() - (jourNoel + 21));
+
+  // Pour le rite extraordinaire : certaines fêtes et périodes sont décalées
+  const ajustement = rite === "extraordinaire" ? -1 : 0; // on décale parfois d’un jour
+
+  const noelFin = new Date(annee + (noel.getMonth() === 11 ? 1 : 0), 0, 13 + ajustement);
+  const epiphanie = new Date(annee, 0, 6);
+
+  // Détermination du temps
+  if (date >= premierAvent && date < noel) return "Avent";
+  if (date >= noel && date <= noelFin) return "Noël";
+  if (date >= mercrediCendres && date < paques) return "Carême";
+  if (date >= paques && date < pentecote) return "Temps pascal";
+  if (date >= pentecote && date < premierAvent) return "Temps ordinaire";
+  if (date < mercrediCendres) return "Temps ordinaire";
+
+  return "Temps ordinaire";
+}
+
+// ===========================
+// 🔹 CHARGEMENT DES CHANTS
+// ===========================
+async function chargerChantsLiturgiques() {
+  try {
+    // On récupère le rite choisi (depuis ton sélecteur existant)
+    const selectRite = document.getElementById("select-rite");
+    const rite = selectRite ? selectRite.value : "ordinaire";
+
+    const dateDuJour = new Date();
+    const tempsLiturgique = determinerTempsLiturgique(dateDuJour, rite);
+    console.log(`⛪ Rite : ${rite} | Temps liturgique : ${tempsLiturgique}`);
+
+    // On récupère le fichier JSON de chants
+    const response = await fetch("chants_par_temps.json");
+    const data = await response.json();
+
+    const menu = document.getElementById("menu-chants");
+    if (!menu) return;
+
+    const chants = data[tempsLiturgique] || [];
+    if (chants.length === 0) {
+      menu.innerHTML = `<option>Aucun chant trouvé pour ${tempsLiturgique}</option>`;
+      return;
+    }
+
+    menu.innerHTML = chants
+      .map(c => `<option>${c.numero}. ${c.titre}</option>`)
+      .join("");
+
+    document.getElementById("affichage-temps").textContent =
+      `${tempsLiturgique} (${rite === "extraordinaire" ? "forme extraordinaire" : "forme ordinaire"})`;
+
+    console.log(`✅ ${chants.length} chants chargés pour le ${tempsLiturgique}`);
+  } catch (err) {
+    console.error("Erreur lors du chargement des chants :", err);
+  }
+}
+
+// ===========================
+// 🔹 INITIALISATION
+// ===========================
+document.addEventListener("DOMContentLoaded", () => {
+  const selectRite = document.getElementById("select-rite");
+  if (selectRite) {
+    selectRite.addEventListener("change", chargerChantsLiturgiques);
+  }
+  chargerChantsLiturgiques();
+});
+</script>
 
 <body>
 <header>🎵 Générateur de Feuille de Messe</header>
