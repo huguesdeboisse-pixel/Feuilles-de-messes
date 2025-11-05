@@ -1,379 +1,189 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Feuille de messe – Générateur de chants</title>
-<meta name="description" content="Application pour concevoir une feuille de messe à partir de carnets de chants catholiques.">
-
-<style>
-:root{
-  --pourpre:#7d1d1d; --pourpre-dark:#9f2c2c; --papier:#fff6ec; --encre:#311a1a;
-}
-  <script>
-async function chargerChantsLiturgiques() {
-  try {
-    const response = await fetch("chants_par_temps.json");
-    const data = await response.json();
-
-    const menu = document.getElementById("menu-chants");
-    if (!menu) return;
-
-    // Pour simplifier : on choisit "Temps ordinaire" par défaut
-    const tempsLiturgique = "Temps ordinaire";  
-    const chants = data[tempsLiturgique] || [];
-
-    menu.innerHTML = chants.map(c => `<option>${c.numero}. ${c.titre}</option>`).join("");
-
-    console.log(`✅ ${chants.length} chants chargés pour le ${tempsLiturgique}`);
-  } catch (err) {
-    console.error("Erreur lors du chargement des chants :", err);
-  }
-}
-
-document.addEventListener("DOMContentLoaded", chargerChantsLiturgiques);
-</script>
-body{
-  margin:0; font-family:"EB Garamond","Times New Roman",serif;
-  color:var(--encre);
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,246,236,0.93)),
-    url('https://upload.wikimedia.org/wikipedia/commons/7/7b/Chartres_Cathedral_North_Transept_Rose_Window.jpg') center/cover fixed no-repeat;
-}
-header{
-  background:rgba(125,29,29,.92); color:#fff; text-align:center;
-  padding:15px; font-variant:small-caps; letter-spacing:.5px;
-  box-shadow:0 2px 8px rgba(0,0,0,.25)
-}
-.container{max-width:850px;margin:25px auto;padding:0 18px}
-.card{
-  background:rgba(255,246,236,.94); border:1px solid #d7b1b1; border-radius:18px;
-  box-shadow:0 8px 22px rgba(0,0,0,.18); padding:22px; margin:18px 0;
-}
-h1,h2{color:var(--pourpre);margin:.2rem 0 .8rem}
-label{font-weight:600;color:#532020}
-input[type="date"],select{
-  width:100%; max-width:420px; padding:10px 12px; margin:6px 0 10px;
-  border:1px solid #bda8a8; border-radius:10px; font-size:16px; background:#fff
-}
-.controls{display:flex;flex-wrap:wrap;gap:10px}
-button{
-  background:var(--pourpre); color:#fff; border:0; border-radius:10px;
-  padding:10px 16px; font-size:16px; cursor:pointer; transition:.2s
-}
-button:hover{background:var(--pourpre-dark);transform:translateY(-1px)}
-.section-title{
-  font-weight:800;color:var(--pourpre);margin:14px 0 8px;
-  border-bottom:1px solid #cfabab;padding-bottom:3px
-}
-.chant{
-  padding:8px 10px; border:1px solid #ccb7b7; border-radius:8px; background:#fff;
-  cursor:pointer; transition:.15s; margin:4px 0
-}
-.chant:hover{background:#fdf3ee}
-.chant.selected{background:var(--pourpre);color:#fff;border-color:var(--pourpre);font-weight:700}
-.notice{font-size:.95rem;color:#5a3c3c;margin-top:4px}
-footer{opacity:.7;text-align:center;font-size:.9rem;margin:16px 0}
-#suggestions,#sheetView{display:none}
-.sheet-meta{font-size:1rem;line-height:1.55}
-.sheet-block{margin-top:14px}
-.sheet-block .tit{font-weight:800;color:var(--pourpre);margin:10px 0 6px}
-.badge{
-  display:inline-block;padding:2px 8px;border-radius:999px;
-  background:#f0dede;color:#5a2d2d;font-size:.86rem;margin-left:6px
-}
-</style>
-</head>
-<script>
-// ===========================
-// 🔹 CALCUL DU TEMPS LITURGIQUE
-// ===========================
-
-// 📅 Algorithme de Butcher : calcule la date de Pâques
-function datePaques(annee) {
-  const a = annee % 19;
-  const b = Math.floor(annee / 100);
-  const c = annee % 100;
-  const d = Math.floor(b / 4);
-  const e = b % 4;
-  const f = Math.floor((b + 8) / 25);
-  const g = Math.floor((b - f + 1) / 3);
-  const h = (19 * a + b - d - g + 15) % 30;
-  const i = Math.floor(c / 4);
-  const k = c % 4;
-  const l = (32 + 2 * e + 2 * i - h - k) % 7;
-  const m = Math.floor((a + 11 * h + 22 * l) / 451);
-  const mois = Math.floor((h + l - 7 * m + 114) / 31);
-  const jour = ((h + l - 7 * m + 114) % 31) + 1;
-  return new Date(annee, mois - 1, jour);
-}
-
-// 📖 Fonction principale : calcule le temps liturgique selon la forme du rite
-function determinerTempsLiturgique(date = new Date(), rite = "ordinaire") {
-  const annee = date.getFullYear();
-  const paques = datePaques(annee);
-
-  // Calcul des dates clés
-  const mercrediCendres = new Date(paques); mercrediCendres.setDate(paques.getDate() - 46);
-  const ascension = new Date(paques); ascension.setDate(paques.getDate() + 39);
-  const pentecote = new Date(paques); pentecote.setDate(paques.getDate() + 49);
-  const trinite = new Date(paques); trinite.setDate(paques.getDate() + 56);
-  const christRoi = new Date(paques); christRoi.setDate(paques.getDate() + 238); // approximation
-
-  // Avent (dimanche le plus proche du 30 nov.)
-  const noel = new Date(annee, 11, 25);
-  const premierAvent = new Date(noel);
-  const jourNoel = noel.getDay();
-  premierAvent.setDate(noel.getDate() - (jourNoel + 21));
-
-  // Pour le rite extraordinaire : certaines fêtes et périodes sont décalées
-  const ajustement = rite === "extraordinaire" ? -1 : 0; // on décale parfois d’un jour
-
-  const noelFin = new Date(annee + (noel.getMonth() === 11 ? 1 : 0), 0, 13 + ajustement);
-  const epiphanie = new Date(annee, 0, 6);
-
-  // Détermination du temps
-  if (date >= premierAvent && date < noel) return "Avent";
-  if (date >= noel && date <= noelFin) return "Noël";
-  if (date >= mercrediCendres && date < paques) return "Carême";
-  if (date >= paques && date < pentecote) return "Temps pascal";
-  if (date >= pentecote && date < premierAvent) return "Temps ordinaire";
-  if (date < mercrediCendres) return "Temps ordinaire";
-
-  return "Temps ordinaire";
-}
-
-// ===========================
-// 🔹 CHARGEMENT DES CHANTS
-// ===========================
-async function chargerChantsLiturgiques() {
-  try {
-    // On récupère le rite choisi (depuis ton sélecteur existant)
-    const selectRite = document.getElementById("select-rite");
-    const rite = selectRite ? selectRite.value : "ordinaire";
-
-    const dateDuJour = new Date();
-    const tempsLiturgique = determinerTempsLiturgique(dateDuJour, rite);
-    console.log(`⛪ Rite : ${rite} | Temps liturgique : ${tempsLiturgique}`);
-
-    // On récupère le fichier JSON de chants
-    const response = await fetch("chants_par_temps.json");
-    const data = await response.json();
-
-    const menu = document.getElementById("menu-chants");
-    if (!menu) return;
-
-    const chants = data[tempsLiturgique] || [];
-    if (chants.length === 0) {
-      menu.innerHTML = `<option>Aucun chant trouvé pour ${tempsLiturgique}</option>`;
-      return;
+  <meta charset="UTF-8">
+  <title>Feuille de Messe</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 40px;
+      color: #222;
     }
 
-    menu.innerHTML = chants
-      .map(c => `<option>${c.numero}. ${c.titre}</option>`)
-      .join("");
+    select, p {
+      font-size: 1rem;
+      margin-top: 10px;
+    }
 
-    document.getElementById("affichage-temps").textContent =
-      `${tempsLiturgique} (${rite === "extraordinaire" ? "forme extraordinaire" : "forme ordinaire"})`;
+    #affichage-temps {
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-weight: 600;
+      color: white;
+      display: inline-block;
+      margin-top: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: background 0.3s ease;
+    }
 
-    console.log(`✅ ${chants.length} chants chargés pour le ${tempsLiturgique}`);
-  } catch (err) {
-    console.error("Erreur lors du chargement des chants :", err);
-  }
-}
-
-// ===========================
-// 🔹 INITIALISATION
-// ===========================
-document.addEventListener("DOMContentLoaded", () => {
-  const selectRite = document.getElementById("select-rite");
-  if (selectRite) {
-    selectRite.addEventListener("change", chargerChantsLiturgiques);
-  }
-  chargerChantsLiturgiques();
-});
-</script>
+    #menu-chants {
+      display: block;
+      margin-top: 20px;
+      min-width: 250px;
+    }
+  </style>
+</head>
 
 <body>
-<header>🎵 Générateur de Feuille de Messe</header>
+  <h2>🎵 Feuille de Messe</h2>
 
-<div class="container">
+  <!-- Sélecteur du rite -->
+  <label for="select-rite">Choisissez le rite :</label>
+  <select id="select-rite">
+    <option value="ordinaire">Rite romain ordinaire</option>
+    <option value="extraordinaire">Rite romain extraordinaire</option>
+  </select>
 
-  <div class="card">
-    <h1>Préparation</h1>
+  <br><br>
 
-    <label for="date">Date de la messe</label>
-    <input type="date" id="date">
+  <!-- Sélecteur du carnet -->
+  <label for="select-carnet">Choisissez un carnet :</label>
+  <select id="select-carnet">
+    <option value="">-- Sélectionnez un carnet --</option>
+    <option value="diocese-frejus-toulon.json">Diocèse de Fréjus-Toulon</option>
+  </select>
 
-    <label for="rite">Rite</label>
-    <select id="rite">
-      <option value="ordinaire">Forme ordinaire du rite romain</option>
-      <option value="extraordinaire">Forme extraordinaire du rite romain</option>
-    </select>
+  <p id="affichage-temps"></p>
 
-    <label for="carnet">Carnet de chants</label>
-    <select id="carnet">
-      <option value="">-- Sélectionnez un carnet --</option>
-      <!-- tu pourras ajouter ici les URLs de tes fichiers JSON -->
-      <option value="https://tonpseudo.github.io/feuille-de-messe/carnets/paroissien.json">Paroissien Romain (démo)</option>
-    </select>
+  <select id="menu-chants">
+    <option>-- Sélectionnez un chant --</option>
+  </select>
 
-    <div class="controls">
-      <button id="btnGenerate">🎼 Générer les suggestions</button>
-      <button id="btnSheet" style="display:none;">📜 Afficher la feuille de messe</button>
-    </div>
+  <!-- ============================ -->
+  <!-- 💡 SCRIPT PRINCIPAL ICI -->
+  <!-- ============================ -->
+  <script>
+  // ===========================
+  // 🔹 CALCUL DU TEMPS LITURGIQUE
+  // ===========================
 
-    <div class="notice">Sélectionnez un carnet avant de générer les suggestions.</div>
-  </div>
-
-  <div id="suggestions" class="card">
-    <h2>Suggestions</h2>
-    <div id="suggestionsBody"></div>
-  </div>
-
-  <div id="sheetView" class="card">
-    <h2 id="sheetTitle">Feuille de messe</h2>
-    <div id="sheetContent" class="sheet-meta"></div>
-    <div class="controls" style="justify-content:center">
-      <button id="btnBack" class="btn-secondary">← Retour</button>
-      <button id="btnPDF">🖨️ Exporter en PDF</button>
-    </div>
-  </div>
-
-  <footer>Version démo – chargement des carnets en ligne (JSON). Aucun chant hébergé localement.</footer>
-
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-<script>
-let catalogue = [];
-let selected = {};
-
-async function chargerCarnet(url){
-  try {
-    const res = await fetch(url);
-    const data = await res.json();
-    catalogue = data.chants || [];
-    alert(`Carnet "${data.nom || 'inconnu'}" chargé (${catalogue.length} chants).`);
-  } catch(e){
-    alert("Erreur de chargement du carnet : " + e.message);
+  function datePaques(annee) {
+    const a = annee % 19;
+    const b = Math.floor(annee / 100);
+    const c = annee % 100;
+    const d = Math.floor(b / 4);
+    const e = b % 4;
+    const f = Math.floor((b + 8) / 25);
+    const g = Math.floor((b - f + 1) / 3);
+    const h = (19 * a + b - d - g + 15) % 30;
+    const i = Math.floor(c / 4);
+    const k = c % 4;
+    const l = (32 + 2 * e + 2 * i - h - k) % 7;
+    const m = Math.floor((a + 11 * h + 22 * l) / 451);
+    const mois = Math.floor((h + l - 7 * m + 114) / 31);
+    const jour = ((h + l - 7 * m + 114) % 31) + 1;
+    return new Date(annee, mois - 1, jour);
   }
-}
 
-document.getElementById('carnet').onchange = e => {
-  const url = e.target.value;
-  if (url) chargerCarnet(url);
-};
+  function determinerTempsLiturgique(date = new Date(), rite = "ordinaire") {
+    const annee = date.getFullYear();
+    const paques = datePaques(annee);
 
-function shuffle(arr){return arr.slice().sort(()=>Math.random()-0.5);}
-function getTempsLiturgique(dateStr){
-  const d = new Date(dateStr); const m = d.getMonth()+1;
-  if(m===12 || m===1) return "Noël";
-  if(m===11) return "Avent";
-  if(m===3 || m===4) return "Carême";
-  if(m===4 || m===5) return "Temps pascal";
-  return "Temps ordinaire";
-}
+    const mercrediCendres = new Date(paques); mercrediCendres.setDate(paques.getDate() - 46);
+    const pentecote = new Date(paques); pentecote.setDate(paques.getDate() + 49);
 
-const PARTIES_BASE = ["entrée","offertoire","communion","sortie"];
+    const noel = new Date(annee, 11, 25);
+    const avent = new Date(noel);
+    avent.setDate(noel.getDate() - (noel.getDay() + 21));
 
-document.getElementById('btnGenerate').onclick = () => {
-  if (!catalogue.length) return alert("Aucun carnet chargé !");
-  const date = document.getElementById('date').value;
-  if (!date) return alert("Choisis une date !");
-  const rite = document.getElementById('rite').value;
-  const temps = getTempsLiturgique(date);
-  const parties = rite === "extraordinaire" ? [...PARTIES_BASE, "antienne"] : [...PARTIES_BASE];
-  selected = {}; parties.forEach(p=>selected[p]=[]);
+    const noelFin = new Date(annee + (noel.getMonth() === 11 ? 1 : 0), 0, 13);
 
-  const box = document.getElementById('suggestionsBody');
-  box.innerHTML = `<div class="notice"><b>Temps liturgique :</b> ${temps}</div>`;
+    if (date >= avent && date < noel) return "Avent";
+    if (date >= noel && date <= noelFin) return "Noël";
+    if (date >= mercrediCendres && date < paques) return "Carême";
+    if (date >= paques && date < pentecote) return "Temps pascal";
+    if (date >= pentecote && date < avent) return "Temps ordinaire";
+    return "Temps ordinaire";
+  }
 
-  parties.forEach(partie=>{
-    let base = catalogue.filter(c=>c.partie===partie && (c.temps||"").toLowerCase().includes(temps.toLowerCase()));
-    if(!base.length) base = catalogue.filter(c=>c.partie===partie);
-    const lot = shuffle(base).slice(0,3);
+  // ===========================
+  // 🔹 ASSIGNATION DES COULEURS
+  // ===========================
 
-    const section = document.createElement('div');
-    section.innerHTML = `<div class="section-title">${partie.toUpperCase()}</div>`;
-    const actions = document.createElement('div');
-    section.appendChild(actions);
-
-    function renderLot(list){
-      list.forEach(chant=>{
-        const div=document.createElement('div');
-        div.className="chant";
-        div.textContent=chant.titre;
-        div.onclick=()=>{
-          div.classList.toggle("selected");
-          const arr=selected[partie];
-          if(arr.includes(chant.titre)) selected[partie]=arr.filter(x=>x!==chant.titre);
-          else arr.push(chant.titre);
-        };
-        section.insertBefore(div,actions);
-      });
+  function couleurLiturgique(temps) {
+    switch (temps) {
+      case "Avent":
+      case "Carême":
+        return "#6f42c1"; // violet
+      case "Noël":
+      case "Temps pascal":
+        return "#f8f9fa"; // blanc
+      case "Temps ordinaire":
+        return "#198754"; // vert
+      default:
+        return "#dc3545"; // rouge
     }
-
-    const btn=document.createElement('button');
-    btn.textContent="Autres suggestions";
-    btn.onclick=()=>{
-      section.querySelectorAll('.chant:not(.selected)').forEach(el=>el.remove());
-      const dispo=base.filter(c=>!selected[partie].includes(c.titre));
-      renderLot(shuffle(dispo).slice(0,3));
-    };
-    actions.className="controls";
-    actions.appendChild(btn);
-
-    box.appendChild(section);
-    renderLot(lot);
-  });
-
-  document.getElementById('suggestions').style.display="block";
-  document.getElementById('btnSheet').style.display="inline-block";
-};
-
-document.getElementById('btnSheet').onclick=()=>{
-  const date=document.getElementById('date').value;
-  const rite=document.getElementById('rite').value;
-  const temps=getTempsLiturgique(date);
-  const d=new Date(date);
-  const dateText=d.toLocaleDateString('fr-FR',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-
-  document.getElementById('sheetTitle').textContent =
-    `Feuille de messe – ${rite==="extraordinaire"?"Forme extraordinaire":"Forme ordinaire"}`;
-
-  let html=`<div class="sheet-meta"><b>Date :</b> ${dateText}<span class="badge">${temps}</span></div>`;
-  for(const [partie,titres] of Object.entries(selected)){
-    if(!titres.length) continue;
-    html+=`<div class="sheet-block"><div class="tit">${partie.toUpperCase()}</div>`;
-    titres.forEach(t=>{
-      const ref=catalogue.find(x=>x.titre===t);
-      html+=`• ${t}`;
-      if(ref?.audio) html+=` <a href="${ref.audio}" target="_blank">🎧</a>`;
-      if(ref?.partition) html+=` <a href="${ref.partition}" target="_blank">📄</a>`;
-      if(ref?.page) html+=` <span class="badge">p.${ref.page}</span>`;
-      html+="<br>";
-    });
-    html+=`</div>`;
   }
-  document.getElementById('sheetContent').innerHTML=html;
-  document.getElementById('suggestions').style.display="none";
-  document.getElementById('sheetView').style.display="block";
-};
 
-document.getElementById('btnBack').onclick=()=>{
-  document.getElementById('sheetView').style.display="none";
-  document.getElementById('suggestions').style.display="block";
-};
+  // ===========================
+  // 🔹 CHARGEMENT DES CHANTS
+  // ===========================
+  async function chargerChantsLiturgiques() {
+    try {
+      const selectRite = document.getElementById("select-rite");
+      const rite = selectRite ? selectRite.value : "ordinaire";
 
-document.getElementById('btnPDF').onclick=()=>{
-  const el=document.getElementById('sheetContent');
-  const opt={margin:10,filename:'feuille-de-messe.pdf',
-    image:{type:'jpeg',quality:0.98},html2canvas:{scale:2},
-    jsPDF:{unit:'mm',format:'a4',orientation:'portrait'}
-  };
-  html2pdf().from(el).set(opt).save();
-};
-</script>
+      const selectCarnet = document.getElementById("select-carnet");
+      const carnetFichier = selectCarnet ? selectCarnet.value : null;
+
+      const menu = document.getElementById("menu-chants");
+      const affichage = document.getElementById("affichage-temps");
+
+      if (!carnetFichier) {
+        affichage.textContent = "Veuillez choisir un carnet.";
+        affichage.style.background = "#999";
+        return;
+      }
+
+      const dateDuJour = new Date();
+      const tempsLiturgique = determinerTempsLiturgique(dateDuJour, rite);
+      const couleur = couleurLiturgique(tempsLiturgique);
+
+      affichage.textContent = `${tempsLiturgique} (${rite === "extraordinaire" ? "forme extraordinaire" : "forme ordinaire"})`;
+      affichage.style.background = couleur;
+      affichage.style.color = (couleur === "#f8f9fa") ? "#222" : "#fff";
+
+      // Lecture du fichier JSON du carnet sélectionné
+      const response = await fetch(carnetFichier);
+      const data = await response.json();
+
+      // On filtre les chants correspondant au temps liturgique
+      const chants = data.chants.filter(c => 
+        (c.temps && c.temps.includes(tempsLiturgique)) || !c.temps
+      );
+
+      if (chants.length === 0) {
+        menu.innerHTML = `<option>Aucun chant trouvé pour ${tempsLiturgique}</option>`;
+        return;
+      }
+
+      menu.innerHTML = chants
+        .map(c => `<option>${c.numero}. ${c.titre}</option>`)
+        .join("");
+
+      console.log(`✅ ${chants.length} chants chargés depuis ${carnetFichier} (${tempsLiturgique})`);
+    } catch (err) {
+      console.error("Erreur lors du chargement des chants :", err);
+    }
+  }
+
+  // ===========================
+  // 🔹 INITIALISATION
+  // ===========================
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("select-rite").addEventListener("change", chargerChantsLiturgiques);
+    document.getElementById("select-carnet").addEventListener("change", chargerChantsLiturgiques);
+  });
+  </script>
 </body>
 </html>
