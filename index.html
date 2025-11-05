@@ -164,21 +164,38 @@
     // ===============================
     // 🔹 CHARGEMENT DES CHANTS
     // ===============================
-    async function chargerChants() {
-      const dateInput = document.getElementById("date-messe");
-      const selectRite = document.getElementById("select-rite");
-      const selectCarnet = document.getElementById("select-carnet");
-      const menu = document.getElementById("menu-chants");
-      const cartouche = document.getElementById("cartouche-temps");
+   async function chargerChants(temps, carnetFichier, rite) {
+  const reponse = await fetch("carnets/" + carnetFichier);
+  const data = await reponse.json();
+  const tousLesChants = data.chants;
 
-      if (!selectCarnet.value) {
-        alert("Veuillez sélectionner un carnet.");
-        return;
-      }
+  // Filtrer les chants selon le temps liturgique
+  const chantsFiltres = tousLesChants.filter(c => c.temps.includes(temps));
 
-      const date = dateInput.value ? new Date(dateInput.value) : new Date();
-      const rite = selectRite.value;
-      const temps = determinerTempsLiturgique(date, rite);
+  const partiesDeMesse = ["Entrée", "Offertoire", "Communion", "Sortie"];
+  if (rite === "extraordinaire") partiesDeMesse.push("Antienne mariale");
+
+  const suggestions = {};
+
+  for (const partie of partiesDeMesse) {
+    const chantsPartie = chantsFiltres.filter(c => c.parties.includes(partie));
+    if (chantsPartie.length > 0) {
+      suggestions[partie] = chantsPartie
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 3);
+    } else {
+      suggestions[partie] = [];
+    }
+  }
+
+  // Sélection spéciale pour l’antienne mariale
+  if (rite === "extraordinaire" && suggestions["Antienne mariale"].length === 0) {
+    const mariales = tousLesChants.filter(c => c.parties.includes("Antienne mariale"));
+    suggestions["Antienne mariale"] = mariales.filter(c => c.temps.includes(temps));
+  }
+
+  return suggestions;
+}
 
       // 🎨 Couleurs liturgiques
       const couleurs = {
