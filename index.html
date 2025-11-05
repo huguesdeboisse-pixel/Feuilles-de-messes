@@ -15,12 +15,12 @@
 
     /* ======= EN-TÊTE AVEC IMAGE ======= */
     header {
-      background: 
+      background:
         linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
         url("mosaique-de-lannonciation-notre-dame-de-la-garde.webp") center/cover no-repeat;
       color: white;
       text-align: center;
-      padding: 3rem 1rem 2rem 1rem;
+      padding: 7rem 1rem 3rem 1rem; /* marge haute augmentée */
       font-style: italic;
     }
 
@@ -115,18 +115,24 @@
       color: #333;
     }
 
-    /* ======= BOUTONS MODERNES ======= */
+    /* ======= BOUTON DE RAFRAÎCHISSEMENT MODERNE ======= */
     .sous-btn {
       background: #0066cc;
       color: white;
-      font-size: 0.9rem;
+      font-size: 1.2rem;
       margin-top: 0.5rem;
-      border-radius: 6px;
-      transition: background 0.2s ease;
+      border-radius: 50%;
+      width: 2.2rem;
+      height: 2.2rem;
+      text-align: center;
+      line-height: 2.2rem;
+      display: inline-block;
+      transition: background 0.2s ease, transform 0.2s ease;
     }
 
     .sous-btn:hover {
       background: #3399ff;
+      transform: rotate(90deg);
     }
   </style>
 </head>
@@ -162,7 +168,6 @@
   </main>
 
   <script>
-    // ====== CALCUL DU TEMPS LITURGIQUE ======
     function datePaques(annee) {
       const a = annee % 19, b = Math.floor(annee / 100), c = annee % 100,
             d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25),
@@ -205,7 +210,6 @@
       }
     }
 
-    // ====== CHARGEMENT DU CARNET ======
     async function chargerCarnet() {
       try {
         const response = await fetch("carnets/diocese-frejus-toulon-classe.json");
@@ -218,7 +222,6 @@
 
     const selectionsUtilisateur = {};
 
-    // ====== GÉNÉRATION DES SUGGESTIONS ======
     async function genererSuggestions() {
       const rite = document.getElementById("select-rite").value;
       const date = new Date(document.getElementById("date").value);
@@ -244,7 +247,7 @@
 
         const btn = document.createElement("button");
         btn.className = "sous-btn";
-        btn.textContent = "🔄 Nouvelles suggestions";
+        btn.textContent = "🔄";
         btn.onclick = () => rafraichirSuggestions(partie, chants, partieEntree);
 
         const bloc = document.createElement("div");
@@ -294,7 +297,6 @@
       return arr.sort(() => Math.random() - 0.5);
     }
 
-    // ====== FEUILLE ======
     function dateEnLettres(dateStr) {
       const d = new Date(dateStr);
       const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
@@ -345,7 +347,6 @@
       page.document.close();
     }
 
-    // ====== INITIALISATION ======
     document.addEventListener("DOMContentLoaded", () => {
       const today = new Date();
       document.getElementById("date").valueAsDate = today;
