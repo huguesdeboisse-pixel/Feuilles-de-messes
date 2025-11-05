@@ -10,6 +10,29 @@
 :root{
   --pourpre:#7d1d1d; --pourpre-dark:#9f2c2c; --papier:#fff6ec; --encre:#311a1a;
 }
+  <script>
+async function chargerChantsLiturgiques() {
+  try {
+    const response = await fetch("chants_par_temps.json");
+    const data = await response.json();
+
+    const menu = document.getElementById("menu-chants");
+    if (!menu) return;
+
+    // Pour simplifier : on choisit "Temps ordinaire" par défaut
+    const tempsLiturgique = "Temps ordinaire";  
+    const chants = data[tempsLiturgique] || [];
+
+    menu.innerHTML = chants.map(c => `<option>${c.numero}. ${c.titre}</option>`).join("");
+
+    console.log(`✅ ${chants.length} chants chargés pour le ${tempsLiturgique}`);
+  } catch (err) {
+    console.error("Erreur lors du chargement des chants :", err);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", chargerChantsLiturgiques);
+</script>
 body{
   margin:0; font-family:"EB Garamond","Times New Roman",serif;
   color:var(--encre);
