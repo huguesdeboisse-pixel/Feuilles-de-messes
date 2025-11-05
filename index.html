@@ -7,17 +7,21 @@
   <style>
     body {
       font-family: "Inter", sans-serif;
-      background: #f5f5f5;
+      background: #faf9f5;
       color: #222;
       margin: 0;
       padding: 0;
     }
 
+    /* ======= EN-TÊTE AVEC IMAGE ======= */
     header {
-      background: linear-gradient(135deg, #3b3b3b, #000);
+      position: relative;
+      background: 
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.5)),
+        url("15ef2ae1-5d94-476e-9749-942dd3827da9.png") center/cover no-repeat;
       color: white;
       text-align: center;
-      padding: 2rem 1rem 1rem 1rem;
+      padding: 3rem 1rem 2rem 1rem;
       font-style: italic;
     }
 
@@ -25,7 +29,7 @@
       margin: 0.5rem 0 0;
       font-size: 1rem;
       font-style: normal;
-      color: #d3d3d3;
+      color: #f2f2f2;
     }
 
     main {
@@ -34,7 +38,7 @@
       background: white;
       padding: 2rem;
       border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     }
 
     h2 {
@@ -112,15 +116,18 @@
       color: #333;
     }
 
+    /* ======= BOUTONS MODERNES ======= */
     .sous-btn {
-      background: #555;
+      background: #0078d4;
+      color: white;
       font-size: 0.9rem;
       margin-top: 0.5rem;
       border-radius: 6px;
+      transition: background 0.2s ease;
     }
 
     .sous-btn:hover {
-      background: #777;
+      background: #3399ff;
     }
   </style>
 </head>
@@ -156,7 +163,7 @@
   </main>
 
   <script>
-    // =============== OUTILS LITURGIQUES ===============
+    // ====== CALCUL DU TEMPS LITURGIQUE ======
     function datePaques(annee) {
       const a = annee % 19, b = Math.floor(annee / 100), c = annee % 100,
             d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25),
@@ -199,15 +206,20 @@
       }
     }
 
-    // =============== GESTION DU CARNET ===============
+    // ====== CHARGEMENT DU CARNET ======
     async function chargerCarnet() {
-      const response = await fetch("carnets/diocese-frejus-toulon-classe.json");
-      return await response.json();
+      try {
+        const response = await fetch("carnets/diocese-frejus-toulon-classe.json");
+        return await response.json();
+      } catch (e) {
+        console.error("Erreur de chargement du carnet :", e);
+        return { chants: [] };
+      }
     }
 
     const selectionsUtilisateur = {};
 
-    // =============== GÉNÉRATION DES SUGGESTIONS ===============
+    // ====== GÉNÉRATION DES SUGGESTIONS ======
     async function genererSuggestions() {
       const rite = document.getElementById("select-rite").value;
       const date = new Date(document.getElementById("date").value);
@@ -254,9 +266,14 @@
 
       const selected = selectionsUtilisateur[partie];
       let subset = chants.filter(c => c.parties.includes(partie));
-      if (subset.length === 0) subset = chants.filter(c => c.parties.includes(partieEntree));
 
-      subset = melanger(subset).slice(0, 3);
+      // Si moins de 3 chants trouvés, on complète avec des chants d’entrée
+      if (subset.length < 3) {
+        const entrees = chants.filter(c => c.parties.includes(partieEntree));
+        subset = [...subset, ...entrees].slice(0, 3);
+      } else {
+        subset = melanger(subset).slice(0, 3);
+      }
 
       if (selected) {
         subset = [selected, ...subset.filter(c => c.titre !== selected.titre).slice(0, 2)];
@@ -283,7 +300,7 @@
       return arr.sort(() => Math.random() - 0.5);
     }
 
-    // =============== FEUILLE DE MESSE ===============
+    // ====== GÉNÉRATION DE LA FEUILLE ======
     function dateEnLettres(dateStr) {
       const d = new Date(dateStr);
       const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
@@ -334,7 +351,7 @@
       page.document.close();
     }
 
-    // =============== INITIALISATION ===============
+    // ====== INITIALISATION ======
     document.addEventListener("DOMContentLoaded", () => {
       document.getElementById("date").valueAsDate = new Date();
       document.getElementById("select-rite").addEventListener("change", genererSuggestions);
