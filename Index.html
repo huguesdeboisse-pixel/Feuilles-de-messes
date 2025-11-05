@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feuille de messe – Générateur de chants</title>
+<meta name="description" content="Application pour concevoir une feuille de messe à partir de carnets de chants catholiques.">
+
+<style>
+:root{
+  --pourpre:#7d1d1d; --pourpre-dark:#9f2c2c; --papier:#fff6ec; --encre:#311a1a;
+}
+body{
+  margin:0; font-family:"EB Garamond","Times New Roman",serif;
+  color:var(--encre);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,246,236,0.93)),
+    url('https://upload.wikimedia.org/wikipedia/commons/7/7b/Chartres_Cathedral_North_Transept_Rose_Window.jpg') center/cover fixed no-repeat;
+}
+header{
+  background:rgba(125,29,29,.92); color:#fff; text-align:center;
+  padding:15px; font-variant:small-caps; letter-spacing:.5px;
+  box-shadow:0 2px 8px rgba(0,0,0,.25)
+}
+.container{max-width:850px;margin:25px auto;padding:0 18px}
+.card{
+  background:rgba(255,246,236,.94); border:1px solid #d7b1b1; border-radius:18px;
+  box-shadow:0 8px 22px rgba(0,0,0,.18); padding:22px; margin:18px 0;
+}
+h1,h2{color:var(--pourpre);margin:.2rem 0 .8rem}
+label{font-weight:600;color:#532020}
+input[type="date"],select{
+  width:100%; max-width:420px; padding:10px 12px; margin:6px 0 10px;
+  border:1px solid #bda8a8; border-radius:10px; font-size:16px; background:#fff
+}
+.controls{display:flex;flex-wrap:wrap;gap:10px}
+button{
+  background:var(--pourpre); color:#fff; border:0; border-radius:10px;
+  padding:10px 16px; font-size:16px; cursor:pointer; transition:.2s
+}
+button:hover{background:var(--pourpre-dark);transform:translateY(-1px)}
+.section-title{
+  font-weight:800;color:var(--pourpre);margin:14px 0 8px;
+  border-bottom:1px solid #cfabab;padding-bottom:3px
+}
+.chant{
+  padding:8px 10px; border:1px solid #ccb7b7; border-radius:8px; background:#fff;
+  cursor:pointer; transition:.15s; margin:4px 0
+}
+.chant:hover{background:#fdf3ee}
+.chant.selected{background:var(--pourpre);color:#fff;border-color:var(--pourpre);font-weight:700}
+.notice{font-size:.95rem;color:#5a3c3c;margin-top:4px}
+footer{opacity:.7;text-align:center;font-size:.9rem;margin:16px 0}
+#suggestions,#sheetView{display:none}
+.sheet-meta{font-size:1rem;line-height:1.55}
+.sheet-block{margin-top:14px}
+.sheet-block .tit{font-weight:800;color:var(--pourpre);margin:10px 0 6px}
+.badge{
+  display:inline-block;padding:2px 8px;border-radius:999px;
+  background:#f0dede;color:#5a2d2d;font-size:.86rem;margin-left:6px
+}
+</style>
+</head>
+
+<body>
+<header>🎵 Générateur de Feuille de Messe</header>
+
+<div class="container">
+
+  <div class="card">
+    <h1>Préparation</h1>
+
+    <label for="date">Date de la messe</label>
+    <input type="date" id="date">
+
+    <label for="rite">Rite</label>
+    <select id="rite">
+      <option value="ordinaire">Forme ordinaire du rite romain</option>
+      <option value="extraordinaire">Forme extraordinaire du rite romain</option>
+    </select>
+
+    <label for="carnet">Carnet de chants</label>
+    <select id="carnet">
+      <option value="">-- Sélectionnez un carnet --</option>
+      <!-- tu pourras ajouter ici les URLs de tes fichiers JSON -->
+      <option value="https://tonpseudo.github.io/feuille-de-messe/carnets/paroissien.json">Paroissien Romain (démo)</option>
+    </select>
+
+    <div class="controls">
+      <button id="btnGenerate">🎼 Générer les suggestions</button>
+      <button id="btnSheet" style="display:none;">📜 Afficher la feuille de messe</button>
+    </div>
+
+    <div class="notice">Sélectionnez un carnet avant de générer les suggestions.</div>
+  </div>
+
+  <div id="suggestions" class="card">
+    <h2>Suggestions</h2>
+    <div id="suggestionsBody"></div>
+  </div>
+
+  <div id="sheetView" class="card">
+    <h2 id="sheetTitle">Feuille de messe</h2>
+    <div id="sheetContent" class="sheet-meta"></div>
+    <div class="controls" style="justify-content:center">
+      <button id="btnBack" class="btn-secondary">← Retour</button>
+      <button id="btnPDF">🖨️ Exporter en PDF</button>
+    </div>
+  </div>
+
+  <footer>Version démo – chargement des carnets en ligne (JSON). Aucun chant hébergé localement.</footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+let catalogue = [];
+let selected = {};
+
+async function chargerCarnet(url){
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    catalogue = data.chants || [];
+    alert(`Carnet "${data.nom || 'inconnu'}" chargé (${catalogue.length} chants).`);
+  } catch(e){
+    alert("Erreur de chargement du carnet : " + e.message);
+  }
+}
+
+document.getElementById('carnet').onchange = e => {
+  const url = e.target.value;
+  if (url) chargerCarnet(url);
+};
+
+function shuffle(arr){return arr.slice().sort(()=>Math.random()-0.5);}
+function getTempsLiturgique(dateStr){
+  const d = new Date(dateStr); const m = d.getMonth()+1;
+  if(m===12 || m===1) return "Noël";
+  if(m===11) return "Avent";
+  if(m===3 || m===4) return "Carême";
+  if(m===4 || m===5) return "Temps pascal";
+  return "Temps ordinaire";
+}
+
+const PARTIES_BASE = ["entrée","offertoire","communion","sortie"];
+
+document.getElementById('btnGenerate').onclick = () => {
+  if (!catalogue.length) return alert("Aucun carnet chargé !");
+  const date = document.getElementById('date').value;
+  if (!date) return alert("Choisis une date !");
+  const rite = document.getElementById('rite').value;
+  const temps = getTempsLiturgique(date);
+  const parties = rite === "extraordinaire" ? [...PARTIES_BASE, "antienne"] : [...PARTIES_BASE];
+  selected = {}; parties.forEach(p=>selected[p]=[]);
+
+  const box = document.getElementById('suggestionsBody');
+  box.innerHTML = `<div class="notice"><b>Temps liturgique :</b> ${temps}</div>`;
+
+  parties.forEach(partie=>{
+    let base = catalogue.filter(c=>c.partie===partie && (c.temps||"").toLowerCase().includes(temps.toLowerCase()));
+    if(!base.length) base = catalogue.filter(c=>c.partie===partie);
+    const lot = shuffle(base).slice(0,3);
+
+    const section = document.createElement('div');
+    section.innerHTML = `<div class="section-title">${partie.toUpperCase()}</div>`;
+    const actions = document.createElement('div');
+    section.appendChild(actions);
+
+    function renderLot(list){
+      list.forEach(chant=>{
+        const div=document.createElement('div');
+        div.className="chant";
+        div.textContent=chant.titre;
+        div.onclick=()=>{
+          div.classList.toggle("selected");
+          const arr=selected[partie];
+          if(arr.includes(chant.titre)) selected[partie]=arr.filter(x=>x!==chant.titre);
+          else arr.push(chant.titre);
+        };
+        section.insertBefore(div,actions);
+      });
+    }
+
+    const btn=document.createElement('button');
+    btn.textContent="Autres suggestions";
+    btn.onclick=()=>{
+      section.querySelectorAll('.chant:not(.selected)').forEach(el=>el.remove());
+      const dispo=base.filter(c=>!selected[partie].includes(c.titre));
+      renderLot(shuffle(dispo).slice(0,3));
+    };
+    actions.className="controls";
+    actions.appendChild(btn);
+
+    box.appendChild(section);
+    renderLot(lot);
+  });
+
+  document.getElementById('suggestions').style.display="block";
+  document.getElementById('btnSheet').style.display="inline-block";
+};
+
+document.getElementById('btnSheet').onclick=()=>{
+  const date=document.getElementById('date').value;
+  const rite=document.getElementById('rite').value;
+  const temps=getTempsLiturgique(date);
+  const d=new Date(date);
+  const dateText=d.toLocaleDateString('fr-FR',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+
+  document.getElementById('sheetTitle').textContent =
+    `Feuille de messe – ${rite==="extraordinaire"?"Forme extraordinaire":"Forme ordinaire"}`;
+
+  let html=`<div class="sheet-meta"><b>Date :</b> ${dateText}<span class="badge">${temps}</span></div>`;
+  for(const [partie,titres] of Object.entries(selected)){
+    if(!titres.length) continue;
+    html+=`<div class="sheet-block"><div class="tit">${partie.toUpperCase()}</div>`;
+    titres.forEach(t=>{
+      const ref=catalogue.find(x=>x.titre===t);
+      html+=`• ${t}`;
+      if(ref?.audio) html+=` <a href="${ref.audio}" target="_blank">🎧</a>`;
+      if(ref?.partition) html+=` <a href="${ref.partition}" target="_blank">📄</a>`;
+      if(ref?.page) html+=` <span class="badge">p.${ref.page}</span>`;
+      html+="<br>";
+    });
+    html+=`</div>`;
+  }
+  document.getElementById('sheetContent').innerHTML=html;
+  document.getElementById('suggestions').style.display="none";
+  document.getElementById('sheetView').style.display="block";
+};
+
+document.getElementById('btnBack').onclick=()=>{
+  document.getElementById('sheetView').style.display="none";
+  document.getElementById('suggestions').style.display="block";
+};
+
+document.getElementById('btnPDF').onclick=()=>{
+  const el=document.getElementById('sheetContent');
+  const opt={margin:10,filename:'feuille-de-messe.pdf',
+    image:{type:'jpeg',quality:0.98},html2canvas:{scale:2},
+    jsPDF:{unit:'mm',format:'a4',orientation:'portrait'}
+  };
+  html2pdf().from(el).set(opt).save();
+};
+</script>
+</body>
+</html>
