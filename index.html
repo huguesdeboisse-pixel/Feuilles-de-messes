@@ -1,264 +1,241 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Feuille de Messe – Générateur</title>
-<style>
-  body {
-    margin: 0;
-    font-family: "Inter", system-ui, sans-serif;
-    background: #f7f6f3;
-    color: #1a1a1a;
-  }
-  header {
-    background: #6f1d1b;
-    color: white;
-    padding: 1em;
-    text-align: center;
-    font-size: 1.5em;
-    letter-spacing: 0.5px;
-  }
-  main {
-    max-width: 900px;
-    margin: 2em auto;
-    background: white;
-    padding: 2em;
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  }
-  label {
-    display: block;
-    margin-top: 1em;
-    font-weight: 600;
-  }
-  input, select, button {
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    width: 100%;
-    font-size: 1em;
-  }
-  button {
-    background: #6f1d1b;
-    color: white;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.2s;
-  }
-  button:hover {
-    background: #501312;
-  }
-  .cartouche {
-    margin-top: 1em;
-    padding: 0.8em;
-    border-radius: 8px;
-    color: white;
-    text-align: center;
-    font-weight: 600;
-  }
-  .violet { background: #6f42c1; }
-  .blanc { background: #f8f9fa; color: #1a1a1a; }
-  .vert { background: #198754; }
-  .rouge { background: #b71c1c; }
-  .section {
-    background: #f8f9fa;
-    border-radius: 12px;
-    padding: 1em;
-    margin-top: 1em;
-  }
-  .section h3 {
-    margin-top: 0;
-  }
-  ul { list-style: none; padding: 0; }
-  li { margin-bottom: 4px; }
-  #feuille {
-    margin-top: 2em;
-    background: white;
-    padding: 1.5em;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    display: none;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feuille de Messe – Diocèse de Fréjus-Toulon</title>
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+      background: #f7f7f7;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(135deg, #8b0000, #b22222);
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    select, input[type="date"] {
+      width: 100%;
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.2rem;
+      background: #8b0000;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover {
+      background: #a52a2a;
+    }
+
+    .partie {
+      margin-top: 1.5rem;
+    }
+
+    .chant {
+      background: #f0f0f0;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      margin: 0.3rem 0;
+    }
+  </style>
 </head>
 <body>
-  <header>Feuille de Messe – Générateur</header>
+  <header>
+    <h1>Feuille de Messe</h1>
+    <p>Diocèse de Fréjus-Toulon</p>
+  </header>
+
   <main>
-    <label for="date">📅 Date de la messe :</label>
-    <input type="date" id="date">
-
-    <label for="rite">✝️ Rite :</label>
-    <select id="rite">
-      <option value="ordinaire">Forme ordinaire</option>
-      <option value="extraordinaire">Forme extraordinaire</option>
+    <label for="select-rite">Choisissez le rite :</label>
+    <select id="select-rite">
+      <option value="ordinaire">Forme ordinaire du rite romain</option>
+      <option value="extraordinaire">Forme extraordinaire du rite romain</option>
     </select>
 
-    <label for="carnet">📘 Carnet de chants :</label>
-    <select id="carnet">
-      <option value="">-- Sélectionnez un carnet --</option>
-      <option value="diocese-frejus-toulon.json">carnet/Diocèse de Fréjus-Toulon-classe</option>
-    </select>
+    <label for="date">Date de la messe :</label>
+    <input type="date" id="date" value="" />
 
-    <div id="cartouche" class="cartouche"></div>
-
-    <button id="generer">🎶 Générer les suggestions</button>
-    <button id="btn-feuille" style="margin-top: 10px;">📄 Générer la feuille de messe</button>
+    <p id="temps-liturgique" style="margin-top:1rem; font-style:italic;"></p>
 
     <div id="suggestions"></div>
-    <div id="feuille"></div>
+
+    <button id="generer">Générer la feuille de messe</button>
   </main>
 
-<script>
-// ============================
-// 🔹 TEMPS LITURGIQUE
-// ============================
-function datePaques(annee) {
-  const a = annee % 19, b = Math.floor(annee / 100), c = annee % 100;
-  const d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25);
-  const g = Math.floor((b - f + 1) / 3);
-  const h = (19 * a + b - d - g + 15) % 30;
-  const i = Math.floor(c / 4), k = c % 4;
-  const l = (32 + 2 * e + 2 * i - h - k) % 7;
-  const m = Math.floor((a + 11 * h + 22 * l) / 451);
-  const mois = Math.floor((h + l - 7 * m + 114) / 31);
-  const jour = ((h + l - 7 * m + 114) % 31) + 1;
-  return new Date(annee, mois - 1, jour);
-}
+  <script>
+    // =============================
+    // 🔹 Calcul du temps liturgique
+    // =============================
 
-function determinerTempsLiturgique(date) {
-  const annee = date.getFullYear();
-  const paques = datePaques(annee);
-  const mercrediCendres = new Date(paques); mercrediCendres.setDate(paques.getDate() - 46);
-  const pentecote = new Date(paques); pentecote.setDate(paques.getDate() + 49);
-  const noel = new Date(annee, 11, 25);
-  const avent = new Date(noel); avent.setDate(noel.getDate() - 28);
-
-  if (date >= avent && date < noel) return "Avent";
-  if (date >= noel && date < new Date(annee + 1, 0, 13)) return "Noël";
-  if (date >= mercrediCendres && date < paques) return "Carême";
-  if (date >= paques && date < pentecote) return "Temps pascal";
-  return "Temps ordinaire";
-}
-
-function couleurTemps(temps) {
-  switch (temps) {
-    case "Avent":
-    case "Carême": return "violet";
-    case "Noël":
-    case "Temps pascal": return "blanc";
-    case "Temps ordinaire": return "vert";
-    default: return "rouge";
-  }
-}
-
-// ============================
-// 🔹 ANTIENNE MARIALE
-// ============================
-function antienneMariale(date) {
-  const annee = date.getFullYear();
-  const paques = datePaques(annee);
-  const c2fev = new Date(annee, 1, 2);
-  const mercSaint = new Date(paques); mercSaint.setDate(paques.getDate() - 4);
-  const pentecote = new Date(paques); pentecote.setDate(paques.getDate() + 49);
-  const trinite = new Date(paques); trinite.setDate(paques.getDate() + 56);
-  const noel = new Date(annee, 11, 25);
-  const avent = new Date(noel); avent.setDate(noel.getDate() - 28);
-
-  if (date >= avent && date <= c2fev) return "Alma Redemptoris Mater";
-  if (date > c2fev && date <= mercSaint) return "Ave Regina caelorum";
-  if (date >= paques && date <= pentecote) return "Regina caeli";
-  if (date > pentecote && date < avent) return "Salve Regina";
-  return "Salve Regina";
-}
-
-// ============================
-// 🔹 CHARGEMENT DES CHANTS
-// ============================
-async function chargerChants(temps, carnet, rite) {
-  const r = await fetch("carnets/" + carnet);
-  const data = await r.json();
-  const chants = data.chants || [];
-
-  // Catégories selon le rite
-  const categories = rite === "ordinaire"
-    ? ["Chant d’entrée", "Psaume responsorial", "Acclamation de l’Évangile", "Sanctus", "Anamnèse", "Agnus Dei", "Chant de communion"]
-    : ["Introït", "Graduel", "Alléluia (ou Trait)", "Offertoire", "Communion", "Antienne mariale"];
-
-  const suggestions = {};
-  for (const part of categories) {
-    const chantsFiltres = chants.filter(c => c.temps?.includes(temps) && c.parties?.includes(part));
-    suggestions[part] = chantsFiltres.sort(() => Math.random() - 0.5).slice(0, 3);
-  }
-
-  // Cas spécial : antienne mariale automatique
-  if (rite === "extraordinaire") {
-    const antienne = antienneMariale(new Date());
-    suggestions["Antienne mariale"] = [{ titre: antienne }];
-  }
-
-  return suggestions;
-}
-
-// ============================
-// 🔹 ÉVÉNEMENTS
-// ============================
-document.getElementById("generer").addEventListener("click", async () => {
-  const dateInput = document.getElementById("date").value;
-  const rite = document.getElementById("rite").value;
-  const carnet = document.getElementById("carnet").value;
-  if (!dateInput || !carnet) {
-    alert("Veuillez sélectionner une date et un carnet.");
-    return;
-  }
-
-  const date = new Date(dateInput);
-  const temps = determinerTempsLiturgique(date);
-  const couleur = couleurTemps(temps);
-  const cartouche = document.getElementById("cartouche");
-  cartouche.className = "cartouche " + couleur;
-  cartouche.textContent = `${temps} (${rite === "extraordinaire" ? "forme extraordinaire" : "forme ordinaire"})`;
-
-  const data = await chargerChants(temps, carnet, rite);
-
-  const div = document.getElementById("suggestions");
-  div.innerHTML = "";
-  for (const [partie, chants] of Object.entries(data)) {
-    const section = document.createElement("div");
-    section.className = "section";
-    section.innerHTML = `<h3>${partie}</h3>`;
-    const ul = document.createElement("ul");
-    if (chants.length > 0) {
-      chants.forEach(c => {
-        const li = document.createElement("li");
-        li.textContent = `${c.numero ? c.numero + ". " : ""}${c.titre}`;
-        ul.appendChild(li);
-      });
-    } else {
-      ul.innerHTML = "<li>Aucun chant trouvé.</li>";
+    function datePaques(annee) {
+      const a = annee % 19;
+      const b = Math.floor(annee / 100);
+      const c = annee % 100;
+      const d = Math.floor(b / 4);
+      const e = b % 4;
+      const f = Math.floor((b + 8) / 25);
+      const g = Math.floor((b - f + 1) / 3);
+      const h = (19 * a + b - d - g + 15) % 30;
+      const i = Math.floor(c / 4);
+      const k = c % 4;
+      const l = (32 + 2 * e + 2 * i - h - k) % 7;
+      const m = Math.floor((a + 11 * h + 22 * l) / 451);
+      const mois = Math.floor((h + l - 7 * m + 114) / 31);
+      const jour = ((h + l - 7 * m + 114) % 31) + 1;
+      return new Date(annee, mois - 1, jour);
     }
-    section.appendChild(ul);
-    div.appendChild(section);
-  }
-});
 
-// ============================
-// 🔹 GÉNÉRATION DE LA FEUILLE
-// ============================
-document.getElementById("btn-feuille").addEventListener("click", () => {
-  const date = document.getElementById("date").value;
-  const rite = document.getElementById("rite").value;
-  const cartouche = document.getElementById("cartouche").textContent;
-  const suggestions = document.getElementById("suggestions").innerHTML;
-  const feuille = document.getElementById("feuille");
-  feuille.innerHTML = `
-    <h2>Feuille de messe du ${date}</h2>
-    <p><strong>${cartouche}</strong></p>
-    ${suggestions}
-  `;
-  feuille.style.display = "block";
-});
-</script>
+    function determinerTempsLiturgique(date = new Date(), rite = "ordinaire") {
+      const annee = date.getFullYear();
+      const paques = datePaques(annee);
+
+      const mercrediCendres = new Date(paques);
+      mercrediCendres.setDate(paques.getDate() - 46);
+      const noel = new Date(annee, 11, 25);
+      const avent = new Date(noel);
+      avent.setDate(noel.getDate() - 21);
+
+      if (date >= avent && date < noel) return "Avent";
+      if (date >= noel && date < new Date(annee + 1, 0, 13)) return "Noël";
+      if (date >= mercrediCendres && date < paques) return "Carême";
+      const pentecote = new Date(paques);
+      pentecote.setDate(paques.getDate() + 49);
+      if (date >= paques && date < pentecote) return "Temps pascal";
+      return "Temps ordinaire";
+    }
+
+    // =============================
+    // 🔹 Chargement du carnet
+    // =============================
+
+    async function chargerCarnet() {
+      const response = await fetch("carnets/diocese-frejus-toulon-classe.json");
+      return await response.json();
+    }
+
+    // =============================
+    // 🔹 Génération des suggestions
+    // =============================
+
+    async function genererSuggestions() {
+      const rite = document.getElementById("select-rite").value;
+      const date = new Date(document.getElementById("date").value);
+      const temps = determinerTempsLiturgique(date, rite);
+
+      document.getElementById("temps-liturgique").textContent =
+        `Temps liturgique : ${temps}`;
+
+      const data = await chargerCarnet();
+      const chants = data.chants.filter(c => c.temps.includes(temps));
+
+      const parties =
+        rite === "ordinaire"
+          ? ["Chant d’entrée", "Psaume responsorial", "Acclamation de l’Évangile", "Sanctus", "Anamnèse", "Agnus Dei", "Chant de communion"]
+          : ["Introït", "Graduel", "Alléluia (ou Trait)", "Offertoire", "Communion", "Antienne mariale"];
+
+      const container = document.getElementById("suggestions");
+      container.innerHTML = "";
+
+      for (const partie of parties) {
+        const div = document.createElement("div");
+        div.className = "partie";
+        div.innerHTML = `<h3>${partie}</h3>`;
+        const subset = chants.filter(c => c.parties.includes(partie)).slice(0, 3);
+        if (subset.length === 0) {
+          div.innerHTML += "<p><em>Aucun chant trouvé pour cette partie.</em></p>";
+        } else {
+          subset.forEach(c => {
+            const p = document.createElement("div");
+            p.className = "chant";
+            p.textContent = `${c.titre} (p. ${c.page || "?"})`;
+            div.appendChild(p);
+          });
+        }
+        container.appendChild(div);
+      }
+    }
+
+    // =============================
+    // 🔹 Génération de la feuille de messe
+    // =============================
+
+    function genererFeuille() {
+      const date = document.getElementById("date").value;
+      const temps = document.getElementById("temps-liturgique").textContent;
+      const contenu = document.getElementById("suggestions").innerHTML;
+
+      const page = window.open("", "_blank");
+      page.document.write(`
+        <html>
+        <head>
+          <title>Feuille de Messe</title>
+          <style>
+            body { font-family: "Georgia", serif; background: white; color: #111; margin: 2rem; }
+            h1 { text-align: center; }
+            .partie h3 { border-bottom: 2px solid #444; padding-bottom: 0.2rem; margin-top: 1rem; }
+            .chant { margin-left: 1rem; }
+          </style>
+        </head>
+        <body>
+          <h1>Feuille de Messe</h1>
+          <p><strong>Date :</strong> ${date}</p>
+          <p><strong>${temps}</strong></p>
+          ${contenu}
+        </body>
+        </html>
+      `);
+      page.document.close();
+    }
+
+    // =============================
+    // 🔹 Initialisation
+    // =============================
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("date").valueAsDate = new Date();
+      document.getElementById("select-rite").addEventListener("change", genererSuggestions);
+      document.getElementById("date").addEventListener("change", genererSuggestions);
+      document.getElementById("generer").addEventListener("click", genererFeuille);
+      genererSuggestions();
+    });
+  </script>
 </body>
 </html>
