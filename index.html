@@ -7,21 +7,29 @@
   <style>
     body {
       font-family: "Inter", sans-serif;
-      background: #f7f7f7;
+      background: #f5f5f5;
       color: #222;
       margin: 0;
       padding: 0;
     }
 
     header {
-      background: linear-gradient(135deg, #8b0000, #b22222);
+      background: linear-gradient(135deg, #3b3b3b, #000);
       color: white;
       text-align: center;
-      padding: 1.5rem 1rem;
+      padding: 2rem 1rem 1rem 1rem;
+      font-style: italic;
+    }
+
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1rem;
+      font-style: normal;
+      color: #d3d3d3;
     }
 
     main {
-      max-width: 800px;
+      max-width: 900px;
       margin: 2rem auto;
       background: white;
       padding: 2rem;
@@ -29,9 +37,15 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
-    h1 {
-      margin: 0;
-      font-size: 1.8rem;
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.3rem;
+      margin-bottom: 1rem;
+      color: #8b0000;
     }
 
     label {
@@ -65,12 +79,17 @@
       background: #a52a2a;
     }
 
+    .divider {
+      border-top: 3px solid #8b0000;
+      margin: 2rem 0;
+    }
+
     .partie {
       margin-top: 1.5rem;
     }
 
     .chant {
-      background: #f0f0f0;
+      background: #f2f2f2;
       border-radius: 8px;
       padding: 0.5rem 1rem;
       margin: 0.3rem 0;
@@ -79,25 +98,32 @@
 </head>
 <body>
   <header>
-    <h1>Feuille de Messe</h1>
-    <p>Diocèse de Fréjus-Toulon</p>
+    <div>« Le but de la musique devrait n'être que la gloire de Dieu et le délassement des âmes. »</div>
+    <p>Johann Sebastian Bach</p>
   </header>
 
   <main>
-    <label for="select-rite">Choisissez le rite :</label>
-    <select id="select-rite">
-      <option value="ordinaire">Forme ordinaire du rite romain</option>
-      <option value="extraordinaire">Forme extraordinaire du rite romain</option>
-    </select>
+    <section id="parametres">
+      <h2>Paramètres</h2>
+      <label for="select-rite">Choisissez le rite :</label>
+      <select id="select-rite">
+        <option value="ordinaire">Forme ordinaire du rite romain</option>
+        <option value="extraordinaire">Forme extraordinaire du rite romain</option>
+      </select>
 
-    <label for="date">Date de la messe :</label>
-    <input type="date" id="date" value="" />
+      <label for="date">Date de la messe :</label>
+      <input type="date" id="date" />
 
-    <p id="temps-liturgique" style="margin-top:1rem; font-style:italic;"></p>
+      <p id="temps-liturgique" style="margin-top:1rem; font-style:italic;"></p>
+    </section>
 
-    <div id="suggestions"></div>
+    <div class="divider"></div>
 
-    <button id="generer">Générer la feuille de messe</button>
+    <section id="resultats">
+      <h2>Suggestions de chants</h2>
+      <div id="suggestions"></div>
+      <button id="generer">Générer la feuille de messe</button>
+    </section>
   </main>
 
   <script>
@@ -123,10 +149,9 @@
       return new Date(annee, mois - 1, jour);
     }
 
-    function determinerTempsLiturgique(date = new Date(), rite = "ordinaire") {
+    function determinerTempsLiturgique(date = new Date()) {
       const annee = date.getFullYear();
       const paques = datePaques(annee);
-
       const mercrediCendres = new Date(paques);
       mercrediCendres.setDate(paques.getDate() - 46);
       const noel = new Date(annee, 11, 25);
@@ -140,6 +165,17 @@
       pentecote.setDate(paques.getDate() + 49);
       if (date >= paques && date < pentecote) return "Temps pascal";
       return "Temps ordinaire";
+    }
+
+    function couleurTempsLiturgique(temps) {
+      switch (temps) {
+        case "Avent":
+        case "Carême": return "#6A0DAD"; // violet
+        case "Noël":
+        case "Temps pascal": return "#D4AF37"; // or
+        case "Temps ordinaire": return "#006400"; // vert
+        default: return "#B22222"; // rouge
+      }
     }
 
     // =============================
@@ -158,10 +194,8 @@
     async function genererSuggestions() {
       const rite = document.getElementById("select-rite").value;
       const date = new Date(document.getElementById("date").value);
-      const temps = determinerTempsLiturgique(date, rite);
-
-      document.getElementById("temps-liturgique").textContent =
-        `Temps liturgique : ${temps}`;
+      const temps = determinerTempsLiturgique(date);
+      document.getElementById("temps-liturgique").textContent = `Temps liturgique : ${temps}`;
 
       const data = await chargerCarnet();
       const chants = data.chants.filter(c => c.temps.includes(temps));
@@ -194,12 +228,19 @@
     }
 
     // =============================
-    // 🔹 Génération de la feuille de messe
+    // 🔹 Génération de la feuille A4
     // =============================
 
+    function dateEnLettres(dateStr) {
+      const d = new Date(dateStr);
+      const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+      return d.toLocaleDateString("fr-FR", options);
+    }
+
     function genererFeuille() {
-      const date = document.getElementById("date").value;
-      const temps = document.getElementById("temps-liturgique").textContent;
+      const dateStr = document.getElementById("date").value;
+      const temps = document.getElementById("temps-liturgique").textContent.split(": ")[1];
+      const couleur = couleurTempsLiturgique(temps);
       const contenu = document.getElementById("suggestions").innerHTML;
 
       const page = window.open("", "_blank");
@@ -208,16 +249,27 @@
         <head>
           <title>Feuille de Messe</title>
           <style>
+            @page { size: A4; margin: 2cm; }
             body { font-family: "Georgia", serif; background: white; color: #111; margin: 2rem; }
-            h1 { text-align: center; }
+            h1 { text-align: center; font-size: 2rem; margin-bottom: 0.5rem; }
+            .date {
+              text-align: center;
+              background: ${couleur};
+              color: white;
+              padding: 0.4rem 0.8rem;
+              border-radius: 8px;
+              display: inline-block;
+              margin: 0 auto;
+              font-weight: bold;
+            }
             .partie h3 { border-bottom: 2px solid #444; padding-bottom: 0.2rem; margin-top: 1rem; }
             .chant { margin-left: 1rem; }
           </style>
         </head>
         <body>
           <h1>Feuille de Messe</h1>
-          <p><strong>Date :</strong> ${date}</p>
-          <p><strong>${temps}</strong></p>
+          <div class="date">${dateEnLettres(dateStr)}</div>
+          <p style="text-align:center; font-style:italic; margin-top:0.5rem;">${temps}</p>
           ${contenu}
         </body>
         </html>
