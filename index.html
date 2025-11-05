@@ -15,10 +15,9 @@
 
     /* ======= EN-TÊTE AVEC IMAGE ======= */
     header {
-      position: relative;
       background: 
-        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.5)),
-        url("15ef2ae1-5d94-476e-9749-942dd3827da9.png") center/cover no-repeat;
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)),
+        url("mosaique-de-lannonciation-notre-dame-de-la-garde.webp") center/cover no-repeat;
       color: white;
       text-align: center;
       padding: 3rem 1rem 2rem 1rem;
@@ -118,7 +117,7 @@
 
     /* ======= BOUTONS MODERNES ======= */
     .sous-btn {
-      background: #0078d4;
+      background: #0066cc;
       color: white;
       font-size: 0.9rem;
       margin-top: 0.5rem;
@@ -267,17 +266,12 @@
       const selected = selectionsUtilisateur[partie];
       let subset = chants.filter(c => c.parties.includes(partie));
 
-      // Si moins de 3 chants trouvés, on complète avec des chants d’entrée
-      if (subset.length < 3) {
-        const entrees = chants.filter(c => c.parties.includes(partieEntree));
-        subset = [...subset, ...entrees].slice(0, 3);
-      } else {
-        subset = melanger(subset).slice(0, 3);
-      }
+      // Complète jusqu’à 3 suggestions avec des chants d’entrée si besoin
+      const entrees = chants.filter(c => c.parties.includes(partieEntree));
+      while (subset.length < 3 && entrees.length > 0) subset.push(entrees.pop());
 
-      if (selected) {
-        subset = [selected, ...subset.filter(c => c.titre !== selected.titre).slice(0, 2)];
-      }
+      subset = melanger(subset).slice(0, 3);
+      if (selected) subset = [selected, ...subset.filter(c => c.titre !== selected.titre).slice(0, 2)];
 
       subset.forEach(c => {
         const el = document.createElement("div");
@@ -300,7 +294,7 @@
       return arr.sort(() => Math.random() - 0.5);
     }
 
-    // ====== GÉNÉRATION DE LA FEUILLE ======
+    // ====== FEUILLE ======
     function dateEnLettres(dateStr) {
       const d = new Date(dateStr);
       const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
@@ -353,7 +347,8 @@
 
     // ====== INITIALISATION ======
     document.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("date").valueAsDate = new Date();
+      const today = new Date();
+      document.getElementById("date").valueAsDate = today;
       document.getElementById("select-rite").addEventListener("change", genererSuggestions);
       document.getElementById("date").addEventListener("change", genererSuggestions);
       document.getElementById("generer").addEventListener("click", genererFeuille);
