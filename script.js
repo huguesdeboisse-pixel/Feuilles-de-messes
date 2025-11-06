@@ -2,10 +2,7 @@
  * CONFIGURATION
  ********************/
 const CARNETS = [
-  { value: "all", label: "Tous les carnets", file: "carnets/all.json" },
-  { value: "maquette", label: "Maquette 2017", file: "carnets/Maquette-carnet-de-chants-final-2017.json" },
-  { value: "saint_pothin", label: "Saint-Pothin", file: "carnets/Saint-Pothin.json" },
-  { value: "cap_mission", label: "CAP Mission", file: "carnets/CARNET-DE-CHANTS-CAP-MISSION.json" },
+  { value: "frejus", label: "Fréjus", file: "diocese-frejus-toulon-classe.json" },
 ];
 
 /********************
