@@ -115,24 +115,26 @@
       color: #333;
     }
 
-    /* ======= BOUTON DE RAFRAÎCHISSEMENT MODERNE ======= */
+    /* ======= BOUTON SIMPLE 🔄 ======= */
     .sous-btn {
       background: #0066cc;
       color: white;
       font-size: 1.2rem;
       margin-top: 0.5rem;
-      border-radius: 50%;
+      border-radius: 6px;
       width: 2.2rem;
       height: 2.2rem;
-      text-align: center;
-      line-height: 2.2rem;
-      display: inline-block;
-      transition: background 0.2s ease, transform 0.2s ease;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.1s ease, background 0.2s ease;
+    }
+
+    .sous-btn:active {
+      transform: scale(0.9);
     }
 
     .sous-btn:hover {
       background: #3399ff;
-      transform: rotate(90deg);
     }
   </style>
 </head>
@@ -168,6 +170,7 @@
   </main>
 
   <script>
+    // ====== OUTILS LITURGIQUES ======
     function datePaques(annee) {
       const a = annee % 19, b = Math.floor(annee / 100), c = annee % 100,
             d = Math.floor(b / 4), e = b % 4, f = Math.floor((b + 8) / 25),
@@ -210,18 +213,15 @@
       }
     }
 
+    // ====== CHARGEMENT DU CARNET ======
     async function chargerCarnet() {
-      try {
-        const response = await fetch("carnets/diocese-frejus-toulon-classe.json");
-        return await response.json();
-      } catch (e) {
-        console.error("Erreur de chargement du carnet :", e);
-        return { chants: [] };
-      }
+      const response = await fetch("carnets/diocese-frejus-toulon-classe.json");
+      return await response.json();
     }
 
     const selectionsUtilisateur = {};
 
+    // ====== GÉNÉRATION DES SUGGESTIONS ======
     async function genererSuggestions() {
       const rite = document.getElementById("select-rite").value;
       const date = new Date(document.getElementById("date").value);
@@ -261,7 +261,8 @@
       }
     }
 
-    function rafraichirSuggestions(partie, chants, partieEntree) {
+    // ====== RAFRAÎCHISSEMENT AVEC REPLI SUR LE TEMPS ORDINAIRE ======
+    async function rafraichirSuggestions(partie, chants, partieEntree) {
       const bloc = document.querySelector(`.liste-chants[data-partie="${partie}"]`);
       if (!bloc) return;
       bloc.innerHTML = "";
@@ -269,12 +270,28 @@
       const selected = selectionsUtilisateur[partie];
       let subset = chants.filter(c => c.parties.includes(partie));
 
-      // Complète jusqu’à 3 suggestions avec des chants d’entrée si besoin
+      // Si aucun chant ne correspond, on prend les chants d’entrée du Temps ordinaire
+      if (subset.length === 0) {
+        try {
+          const response = await fetch("carnets/diocese-frejus-toulon-classe.json");
+          const data = await response.json();
+          subset = data.chants.filter(
+            c =>
+              c.parties.includes("Chant d’entrée") &&
+              c.temps.includes("Temps ordinaire")
+          );
+        } catch (e) {
+          console.error("Erreur lors du chargement des chants de secours :", e);
+        }
+      }
+
+      // Compléter jusqu’à 3 suggestions
       const entrees = chants.filter(c => c.parties.includes(partieEntree));
       while (subset.length < 3 && entrees.length > 0) subset.push(entrees.pop());
 
       subset = melanger(subset).slice(0, 3);
-      if (selected) subset = [selected, ...subset.filter(c => c.titre !== selected.titre).slice(0, 2)];
+      if (selected)
+        subset = [selected, ...subset.filter(c => c.titre !== selected.titre).slice(0, 2)];
 
       subset.forEach(c => {
         const el = document.createElement("div");
@@ -297,6 +314,7 @@
       return arr.sort(() => Math.random() - 0.5);
     }
 
+    // ====== FEUILLE DE MESSE ======
     function dateEnLettres(dateStr) {
       const d = new Date(dateStr);
       const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
@@ -347,6 +365,7 @@
       page.document.close();
     }
 
+    // ====== INITIALISATION ======
     document.addEventListener("DOMContentLoaded", () => {
       const today = new Date();
       document.getElementById("date").valueAsDate = today;
