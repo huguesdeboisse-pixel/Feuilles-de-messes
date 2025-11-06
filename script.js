@@ -2,7 +2,7 @@
  * CONFIGURATION
  ********************/
 const CARNETS = [
-  { value: "frejus", label: "Fréjus", file: "diocese-frejus-toulon-classe.json" },
+  { value: "frejus", label: "Fréjus", file: "carnets/diocese-frejus-toulon-classe.json" },
 ];
 
 /********************
