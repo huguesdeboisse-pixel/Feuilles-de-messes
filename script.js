@@ -2,16 +2,20 @@
  * CONFIGURATION
  ********************/
 const CARNETS = [
-  { value: "frejus", label: "Fréjus", file: "carnets/diocese-frejus-toulon-classe.json" },
+  { value: "frejus", label: "Fréjus-Toulon", file: "carnets/diocese-frejus-toulon-classe.json" }
 ];
 
 /********************
  * VARIABLES GLOBALES
  ********************/
 let chants = [];
-let currentCarnetValue = "all";
+let currentCarnetValue = "frejus";
 let randomSeeds = {
-  entree: 0, offertoire: 0, communion: 0, envoi: 0, antienne_mariale: 0
+  entree: 0,
+  offertoire: 0,
+  communion: 0,
+  envoi: 0,
+  antienne_mariale: 0
 };
 
 /********************
@@ -22,7 +26,7 @@ init();
 async function init() {
   const carnetSelect = document.getElementById("carnetSelect");
 
-  // Liste déroulante
+  // Liste déroulante des carnets disponibles
   CARNETS.forEach(c => {
     const opt = document.createElement("option");
     opt.value = c.value;
@@ -30,13 +34,13 @@ async function init() {
     carnetSelect.appendChild(opt);
   });
 
-  // Date par défaut
   document.getElementById("dateInput").valueAsDate = new Date();
 
-  // Événements : mise à jour instantanée
+  // Mise à jour automatique à chaque changement de paramètre
   document.querySelectorAll("#dateInput, #riteSelect, #carnetSelect, #filterBySeason")
     .forEach(el => el.addEventListener("input", handleParameterChange));
 
+  // Boutons "Autre suggestion"
   document.querySelectorAll(".btn-ghost.other").forEach(btn => {
     btn.addEventListener("click", () => {
       const cat = btn.dataset.cat;
@@ -52,7 +56,9 @@ async function init() {
  * CHANGEMENT DE PARAMÈTRE
  ********************/
 async function handleParameterChange(e) {
-  if (e.target.id === "carnetSelect") await handleReload();
+  if (e.target.id === "carnetSelect") {
+    await handleReload();
+  }
   renderHeader();
   renderSuggestions();
 }
@@ -61,15 +67,25 @@ async function handleParameterChange(e) {
  * CHARGEMENT DU CARNET
  ********************/
 async function handleReload() {
-  currentCarnetValue = document.getElementById("carnetSelect").value || "all";
+  currentCarnetValue = document.getElementById("carnetSelect").value || "frejus";
   const meta = CARNETS.find(c => c.value === currentCarnetValue);
 
   try {
     const res = await fetch(meta.file + "?v=" + Date.now());
-    chants = await res.json();
+    const data = await res.json();
+
+    if (Array.isArray(data)) {
+      chants = data;
+    } else if (typeof data === "object" && Array.isArray(data.chants)) {
+      chants = data.chants;
+    } else {
+      console.error("Format JSON inattendu :", data);
+      chants = [];
+    }
+
     console.info(`✅ ${chants.length} chants chargés (${meta.label})`);
   } catch (e) {
-    console.error("❌ Erreur de chargement :", e);
+    console.error("❌ Erreur de chargement du carnet :", e);
     chants = [];
   }
 
@@ -79,21 +95,29 @@ async function handleReload() {
 }
 
 /********************
- * RITE EXTRA
+ * RITE EXTRAORDINAIRE
  ********************/
 function handleRiteToggle() {
-  if (document.getElementById("riteSelect").value === "extraordinaire")
+  if (document.getElementById("riteSelect").value === "extraordinaire") {
     document.body.classList.add("extra");
-  else
+  } else {
     document.body.classList.remove("extra");
+  }
 }
 
 /********************
- * ENTÊTE
+ * EN-TÊTE
  ********************/
 function renderHeader() {
-  const d = document.getElementById("dateInput").valueAsDate;
-  const { name, className, title, saint } = detectSeasonRough(d);
+  const d = document.getElementById("dateInput").valueAsDate || new Date();
+  const rite = document.getElementById("riteSelect").value === "extraordinaire"
+    ? "Rite extraordinaire"
+    : "Rite ordinaire";
+
+  document.getElementById("sheetDate").textContent = d.toLocaleDateString("fr-FR");
+  document.getElementById("sheetRite").textContent = rite;
+
+  const { name, className, title } = detectSeasonRough(d);
   const pill = document.getElementById("sheetSeason");
   pill.textContent = name;
   pill.className = "season-pill " + className;
@@ -101,14 +125,17 @@ function renderHeader() {
 }
 
 /********************
- * DÉTERMINATION SAISON (placeholder)
+ * SAISON LITURGIQUE (placeholder)
  ********************/
 function detectSeasonRough(d) {
   const m = d.getMonth() + 1;
-  if (m === 12 || m === 1) return { name: "Avent", className: "season-avent", title: "Dimanche de l’Avent", saint: "—" };
-  if (m === 3) return { name: "Carême", className: "season-careme", title: "Dimanche de Carême", saint: "—" };
-  if (m === 4) return { name: "Temps pascal", className: "season-solennite", title: "Dimanche de Pâques", saint: "—" };
-  return { name: "Temps ordinaire", className: "season-ordinaire", title: "Feuille de Messe", saint: "—" };
+  if (m === 12 || m === 1)
+    return { name: "Avent", className: "season-avent", title: "Dimanche de l’Avent" };
+  if (m === 3)
+    return { name: "Carême", className: "season-careme", title: "Dimanche de Carême" };
+  if (m === 4)
+    return { name: "Temps pascal", className: "season-solennite", title: "Dimanche de Pâques" };
+  return { name: "Temps ordinaire", className: "season-ordinaire", title: "Feuille de Messe" };
 }
 
 /********************
@@ -147,42 +174,3 @@ function cardSuggestion(ch, cat) {
   c.innerHTML = `
     <h3>${ch.titre || "Sans titre"}</h3>
     <div class="excerpt">${(ch.texte || "").split("\n").slice(0,3).join(" ")}</div>
-    <div class="cta-row">
-      <button class="btn">Choisir ce chant</button>
-      <button class="btn secondary">Autre suggestion</button>
-    </div>
-  `;
-  c.querySelector(".btn").onclick = () => placeOnSheet(ch, cat);
-  c.querySelector(".btn.secondary").onclick = () => renderSuggestions();
-  return c;
-}
-
-/********************
- * FEUILLE A4
- ********************/
-function placeOnSheet(ch, cat) {
-  const target = document.getElementById("out-" + cat);
-  target.innerHTML = `
-    <h3>${headingFor(cat)} — ${ch.titre || "Sans titre"}</h3>
-    ${currentCarnetValue !== "all" && ch.source_pages ? `<div class="ref">p. ${ch.source_pages[0]}</div>` : ""}
-    <div class="lyrics">${ch.texte || ""}</div>
-  `;
-}
-
-function headingFor(cat) {
-  switch (cat) {
-    case "entree": return "Chant d’entrée";
-    case "offertoire": return "Chant d’offertoire";
-    case "communion": return "Chant de communion";
-    case "envoi": return "Chant d’envoi";
-    case "antienne_mariale": return "Antienne mariale";
-    default: return "Chant";
-  }
-}
-
-/********************
- * UTILITAIRES
- ********************/
-function shuffle(arr) {
-  return arr.map(a => [Math.random(), a]).sort((a,b)=>a[0]-b[0]).map(a=>a[1]);
-}
