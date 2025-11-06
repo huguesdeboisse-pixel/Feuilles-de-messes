@@ -96,11 +96,6 @@ function handleRiteToggle() {
  ********************/
 function renderHeader() {
   const d = document.getElementById("dateInput").valueAsDate;
-  const rite = document.getElementById("riteSelect").value === "extraordinaire" ? "Rite extraordinaire" : "Rite ordinaire";
-
-  document.getElementById("sheetDate").textContent = d.toLocaleDateString("fr-FR");
-  document.getElementById("sheetRite").textContent = rite;
-
   const { name, className, title, saint } = detectSeasonRough(d);
   const pill = document.getElementById("sheetSeason");
   pill.textContent = name;
