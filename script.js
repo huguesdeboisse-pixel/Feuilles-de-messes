@@ -297,38 +297,4 @@ function shuffleDeterministic(arr, seed = 0) {
   return a;
 }
 
-/********************
- * SIDEBAR REDIMENSIONNABLE
- ********************/
-function initResizableSidebar() {
-  const app = document.querySelector(".app");
-  const left = document.querySelector(".left");
-  const right = document.querySelector(".right");
 
-  const resizer = document.createElement("div");
-  resizer.style.width = "6px";
-  resizer.style.cursor = "col-resize";
-  resizer.style.background = "transparent";
-  resizer.style.position = "relative";
-  resizer.style.zIndex = "5";
-
-  app.insertBefore(resizer, right);
-
-  let isResizing = false;
-
-  resizer.addEventListener("mousedown", e => {
-    isResizing = true;
-    document.body.style.userSelect = "none";
-  });
-
-  document.addEventListener("mousemove", e => {
-    if (!isResizing) return;
-    const newWidth = Math.min(Math.max(e.clientX - app.offsetLeft, 300), 700);
-    left.style.width = newWidth + "px";
-  });
-
-  document.addEventListener("mouseup", () => {
-    isResizing = false;
-    document.body.style.userSelect = "";
-  });
-}
