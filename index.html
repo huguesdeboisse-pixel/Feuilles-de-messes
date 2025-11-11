@@ -1,114 +1,104 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Feuille de Messe</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Anti-cache CDN (pratique sur GitHub Pages) -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-
-  <link rel="stylesheet" href="style.css?v=1">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="app">
-    <!-- PANNEAU GAUCHE : configuration -->
-    <aside class="left">
+    <!-- COLONNE GAUCHE : PARAMÈTRES + SUGGESTIONS -->
+    <aside class="left-panel">
       <h1>Feuille de Messe</h1>
 
-      <div class="field">
-        <label for="dateInput">Date</label>
-        <input id="dateInput" type="date">
+      <!-- PARAMÈTRES -->
+      <div class="params">
+        <div class="field">
+          <label for="dateInput">Date</label>
+          <input type="date" id="dateInput" />
+        </div>
+
+        <div class="field">
+          <label for="riteSelect">Rite</label>
+          <select id="riteSelect">
+            <option value="ordinaire">Ordinaire</option>
+            <option value="extraordinaire">Extraordinaire</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="carnetSelect">Carnet de chants</label>
+          <select id="carnetSelect">
+            <!-- options injectées par JS -->
+          </select>
+          <p class="hint">
+            Choisir “Tous les carnets” pour rechercher globalement (pas de renvoi de page).
+          </p>
+        </div>
       </div>
 
-      <div class="field">
-        <label for="riteSelect">Rite</label>
-        <select id="riteSelect">
-          <option value="ordinaire">Ordinaire</option>
-          <option value="extraordinaire">Extraordinaire</option>
-        </select>
-      </div>
+      <hr />
 
-      <div class="field">
-        <label for="carnetSelect">Carnet de chants</label>
-        <select id="carnetSelect">
-          <!-- Alimentation dynamique dans script.js -->
-        </select>
-        <small class="hint">Choisir “Tous les carnets” pour rechercher globalement</small>
-      </div>
-
-      <div class="field inline">
-        <input type="checkbox" id="filterBySeason" />
-        <label for="filterBySeason">Filtrer par temps liturgique du jour</label>
-      </div>
-
-      <hr>
-
+      <!-- SUGGESTIONS (une seule section visible à la fois) -->
       <div class="suggestions">
-        <!-- Catégories avec 3 suggestions chacune -->
-        <section class="cat" data-cat="entree">
-          <div class="cat-header">
+        <section data-cat="entree">
+          <div class="section-header">
             <h2>Entrée</h2>
-            <button class="btn-ghost other" data-cat="entree">Autre suggestion</button>
+            <button class="btn-ghost other">↻</button>
           </div>
           <div class="cards" id="cards-entree"></div>
         </section>
 
-        <section class="cat" data-cat="offertoire">
-          <div class="cat-header">
+        <section data-cat="offertoire" style="display:none;">
+          <div class="section-header">
             <h2>Offertoire</h2>
-            <button class="btn-ghost other" data-cat="offertoire">Autre suggestion</button>
+            <button class="btn-ghost other">↻</button>
           </div>
           <div class="cards" id="cards-offertoire"></div>
         </section>
 
-        <section class="cat" data-cat="communion">
-          <div class="cat-header">
+        <section data-cat="communion" style="display:none;">
+          <div class="section-header">
             <h2>Communion</h2>
-            <button class="btn-ghost other" data-cat="communion">Autre suggestion</button>
+            <button class="btn-ghost other">↻</button>
           </div>
           <div class="cards" id="cards-communion"></div>
         </section>
 
-        <section class="cat" data-cat="envoi">
-          <div class="cat-header">
+        <section data-cat="envoi" style="display:none;">
+          <div class="section-header">
             <h2>Envoi</h2>
-            <button class="btn-ghost other" data-cat="envoi">Autre suggestion</button>
+            <button class="btn-ghost other">↻</button>
           </div>
           <div class="cards" id="cards-envoi"></div>
         </section>
 
-        <section class="cat only-extra" data-cat="antienne_mariale">
-          <div class="cat-header">
+        <section data-cat="antienne_mariale" style="display:none;">
+          <div class="section-header">
             <h2>Antienne mariale (RE)</h2>
-            <button class="btn-ghost other" data-cat="antienne_mariale">Autre suggestion</button>
+            <button class="btn-ghost other">↻</button>
           </div>
           <div class="cards" id="cards-antienne_mariale"></div>
         </section>
       </div>
     </aside>
 
-    <!-- PANNEAU DROIT : aperçu A4 -->
-    <main class="right">
-      <div id="a4" class="sheet">
-        <header class="sheet-header">
-          <div class="date-line">
-            <span id="sheetDate">—</span>
-            <span class="dot">•</span>
-            <span id="sheetSeason" class="season-pill season-ordinaire">Temps ordinaire</span>
-            <span class="dot">•</span>
-            <span id="sheetRite">Rite ordinaire</span>
-          </div>
-          <h1 class="mass-title">Feuille de Messe</h1>
-        </header>
+    <!-- COLONNE DROITE : FEUILLE DE MESSE -->
+    <main class="sheet">
+      <header class="sheet-header">
+        <span id="sheetDate">—</span> •
+        <span id="sheetSeason" class="season-pill">Temps ordinaire</span> •
+        <span id="sheetRite">Rite ordinaire</span>
+        <h2 class="mass-title">Feuille de Messe</h2>
+      </header>
 
-        <section id="out-entree"   class="chant-out"></section>
-        <section id="out-offertoire" class="chant-out"></section>
-        <section id="out-communion"  class="chant-out"></section>
-        <section id="out-envoi"      class="chant-out"></section>
-        <section id="out-antienne_mariale" class="chant-out only-extra"></section>
+      <div class="sheet-content">
+        <section id="out-entree"></section>
+        <section id="out-offertoire"></section>
+        <section id="out-communion"></section>
+        <section id="out-envoi"></section>
+        <section id="out-antienne_mariale"></section>
       </div>
     </main>
   </div>
