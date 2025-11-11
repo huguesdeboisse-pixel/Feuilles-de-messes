@@ -129,3 +129,6 @@ riteSelect.addEventListener("change", renderSuggestions);
 document.addEventListener("DOMContentLoaded", () => {
   chargerCarnet("diocese-frejus-toulon.json");
 });
+document.getElementById("date").addEventListener("change", definirCouleurLiturgique);
+riteSelect.addEventListener("change", () => { definirCouleurLiturgique(); renderSuggestions(); });
+
