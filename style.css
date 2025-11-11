@@ -1,242 +1,82 @@
-:root {
-  --bg: #f7f7f8;
-  --text: #111;
-  --muted: #666;
-  --card: #fff;
-  --line: #e6e6e9;
-
-  /* Couleurs liturgiques */
-  --violet: #5a3e85;      /* Avent/Carême */
-  --blanc:  #c2a25c;      /* Blanc/Or (Noël/Pâques/solennités) */
-  --vert:   #2f7d32;      /* Temps ordinaire */
-  --rouge:  #b3261e;      /* Pentecôte/Martyrs/Passion */
-}
-
-* { box-sizing: border-box; }
-html, body { height: 100%; }
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-
-/* === GRILLE PRINCIPALE === */
+/* STRUCTURE PRINCIPALE */
 .app {
   display: grid;
-  grid-template-columns: minmax(300px, 420px) 1fr;
-  gap: 16px;
-  padding: 16px;
+  grid-template-columns: 420px 1fr;
+  gap: 24px;
   max-width: 1600px;
   margin: 0 auto;
+  padding: 24px;
 }
 
-/* === COLONNE GAUCHE === */
-.left {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 16px;
-  height: calc(100vh - 32px);
+/* COLONNE PARAMÈTRES GAUCHE */
+.colonne-gauche {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  resize: horizontal;       /* permet le redimensionnement */
   overflow: auto;
-  resize: horizontal;         /* redimensionnable */
-  min-width: 300px;
+  min-width: 320px;
   max-width: 700px;
 }
-.left h1 {
-  font-size: 22px;
-  margin: 0 0 12px 0;
-}
-.field { margin: 12px 0; }
-.field.inline { display: flex; align-items: center; gap: 8px; }
-.field label {
-  display: block;
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 6px;
-}
-.field input[type="date"], .field select {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  background: #fff;
-  font-size: 14px;
-}
-.hint {
-  display: block;
-  color: var(--muted);
-  font-size: 12px;
-  margin-top: 6px;
-}
-hr {
-  border: none;
-  border-top: 1px solid var(--line);
-  margin: 16px 0;
-}
 
-.cat { margin-bottom: 18px; }
-.cat-header { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.cat-header h2 { font-size: 18px; margin: 0; }
-.btn-ghost {
-  border: 1px solid var(--line);
-  background: #fff;
-  padding: 8px 10px;
-  border-radius: 10px;
-  font-size: 13px;
-  cursor: pointer;
+/* FEUILLE DE MESSE DROITE */
+.colonne-droite {
+  background: none;
 }
-.btn-ghost:hover { background: #fafafa; }
-
-.cards {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-  margin-top: 8px;
-}
-.card {
+.feuille-messe {
   background: #fff;
-  border: 1px solid var(--line);
+  padding: 32px;
   border-radius: 12px;
-  padding: 10px;
-}
-.card h3 { font-size: 15px; margin: 0 0 6px 0; }
-.card .excerpt {
-  font-size: 13px;
-  color: var(--muted);
-  max-height: 3.2em;
-  overflow: hidden;
-}
-.card .cta-row {
-  margin-top: 8px;
-  display: flex;
-  gap: 8px;
-}
-.btn {
-  background: #111;
-  color: #fff;
-  border: none;
-  padding: 8px 10px;
-  border-radius: 10px;
-  font-size: 13px;
-  cursor: pointer;
-}
-.btn.secondary {
-  background: #f1f1f4;
-  color: #111;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-height: 85vh;
+  transition: all 0.3s ease;
 }
 
-/* === FEUILLE A4 === */
-.right {
-  height: calc(100vh - 32px);
-  overflow: auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-.sheet {
-  width: 210mm;
-  min-height: 297mm;
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 20mm 16mm;
-  box-shadow: 0 10px 30px rgba(0,0,0,.06);
-}
-.sheet-header { margin-bottom: 10mm; }
-.date-line {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  color: var(--muted);
-  font-size: 14px;
-}
-.dot { opacity: .6; }
-.mass-title {
-  margin: 6px 0 0 0;
-  font-size: 24px;
-  font-weight: 700;
-}
-
-.season-pill {
-  padding: 2px 8px;
-  border-radius: 999px;
-  color: #fff;
-  font-weight: 600;
-  font-size: 12px;
-}
-.season-ordinaire { background: var(--vert); }
-.season-avent, .season-careme { background: var(--violet); }
-.season-solennite { background: var(--blanc); color: #1e1e1e; }
-.season-rouge { background: var(--rouge); }
-
-.chant-out { margin-bottom: 12mm; }
-.chant-out h3 { margin: 0 0 4px 0; font-size: 16px; }
-.ref { color: var(--muted); font-size: 12px; margin-bottom: 4px; }
-.lyrics { white-space: pre-wrap; font-size: 14px; }
-
-/* Rite extraordinaire : antienne mariale */
-.only-extra { display: none; }
-body.extra .only-extra { display: block; }
-
-/* Impression */
-@media print {
-  body { background: #fff; }
-  .app { display: block; }
-  .left { display: none; }
-  .sheet {
-    box-shadow: none;
-    border: none;
-    width: 210mm;
-    min-height: 297mm;
-  }
-}
-.boutons-navigation {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-}
-.btn-nav {
-  background-color: #333;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-.btn-nav:hover {
-  background-color: #555;
-}
+/* CARTES DE CHANTS */
 .chant-card {
   border: 1px solid #ccc;
-  padding: 8px;
-  border-radius: 8px;
-  margin: 6px 0;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 8px 0;
   cursor: pointer;
-  transition: background 0.2s ease;
+  background: #fdfdfd;
+  transition: background 0.25s ease, transform 0.15s ease;
 }
 .chant-card:hover {
-  background: #f0f0f0;
+  background: #faf7ee;
+  transform: translateY(-2px);
 }
 .chant-card.selected {
-  background: #d8e9d8;
-  border-color: #2e7d32;
+  background: #e4f4e2;
+  border-color: #317a35;
 }
 
+/* BOUTONS NAVIGATION */
 .boutons-navigation {
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 .btn-nav {
-  background-color: #333;
-  color: white;
   border: none;
+  color: #fff;
   padding: 8px 16px;
   border-radius: 8px;
   cursor: pointer;
+  font-weight: 500;
+  font-size: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  transition: background 0.2s ease, transform 0.1s ease;
 }
 .btn-nav:hover {
-  background-color: #555;
+  transform: translateY(-1px);
 }
+
+/* COULEURS LITURGIQUES AUTOMATIQUES */
+body[data-couleur="vert"] .btn-nav { background: #317a35; }      /* temps ordinaire */
+body[data-couleur="violet"] .btn-nav { background: #6a1b9a; }    /* avent / carême */
+body[data-couleur="rouge"] .btn-nav { background: #b71c1c; }     /* pentecôte / martyrs */
+body[data-couleur="or"] .btn-nav { background: #c4a000; }        /* fêtes / pâques / noël */
