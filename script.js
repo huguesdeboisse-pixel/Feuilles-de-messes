@@ -22,6 +22,30 @@ let selectedChants = {
 
 const parties = ["entree", "offertoire", "communion", "envoi", "antienne_mariale"];
 
+// === ANTENNES MARIALES ===
+const antiennesMariales = {
+  "Avent": {
+    titre: "Alma Redemptoris Mater",
+    texte: "Alma Redemptoris Mater, quae pervia caeli porta manes...",
+  },
+  "Noël": {
+    titre: "Alma Redemptoris Mater",
+    texte: "Alma Redemptoris Mater, quae pervia caeli porta manes...",
+  },
+  "Carême": {
+    titre: "Ave Regina Caelorum",
+    texte: "Ave Regina caelorum, Ave Domina angelorum...",
+  },
+  "Temps pascal": {
+    titre: "Regina Caeli",
+    texte: "Regina caeli laetare, alleluia...",
+  },
+  "Temps ordinaire": {
+    titre: "Salve Regina",
+    texte: "Salve Regina, mater misericordiae...",
+  }
+};
+
 // === INITIALISATION ===
 document.addEventListener("DOMContentLoaded", async () => {
   await chargerCarnets();
@@ -33,13 +57,16 @@ dateInput.addEventListener("change", () => {
   definirCouleurLiturgique();
   handleReload();
 });
-riteSelect.addEventListener("change", handleReload);
+riteSelect.addEventListener("change", () => {
+  definirCouleurLiturgique();
+  handleReload();
+});
 carnetSelect.addEventListener("change", handleReload);
 reloadBtn.addEventListener("click", handleReload);
 nextBtn.addEventListener("click", () => changerPartie(1));
 prevBtn.addEventListener("click", () => changerPartie(-1));
 
-// === CHARGEMENT DES CARNETS DISPONIBLES ===
+// === CHARGEMENT DES CARNETS ===
 async function chargerCarnets() {
   try {
     const fichiers = [
@@ -58,12 +85,13 @@ async function handleReload() {
   try {
     const url = carnetSelect.value;
     if (url === "tous") {
-      chants = []; // fusion multiple à venir
+      chants = [];
     } else {
       const response = await fetch(url + "?v=" + Date.now());
       chants = await response.json();
     }
     console.log(`✅ ${chants.length} chants chargés`);
+    gererAntienneMariale();
     renderSuggestions();
   } catch (err) {
     console.error("❌ Erreur de chargement :", err);
@@ -97,7 +125,7 @@ function getCouleurHex(c) {
   }
 }
 
-// === CALCUL DU NOM DU JOUR (TEMPORAIRE EN ATTENDANT SANCTORAL) ===
+// === NOM DU JOUR (TEMPORAIRE) ===
 function nomDuJourLiturgique(dateStr) {
   if (!dateStr) return "Feuille de Messe";
   const d = new Date(dateStr);
@@ -110,6 +138,23 @@ function nomDuJourLiturgique(dateStr) {
   return `${jour}ᵉ dimanche du temps ordinaire`;
 }
 
+// === GESTION DES ANTENNES MARIALES ===
+function gererAntienneMariale() {
+  const rite = riteSelect.value;
+  const saison = sheetSeason.textContent;
+
+  if (rite === "extraordinaire") {
+    const antienne = antiennesMariales[saison] || antiennesMariales["Temps ordinaire"];
+    selectedChants.antienne_mariale = [{
+      titre: antienne.titre,
+      texte: antienne.texte
+    }];
+  } else {
+    selectedChants.antienne_mariale = [];
+  }
+  majFeuilleMesse();
+}
+
 // === AFFICHAGE DES SUGGESTIONS ===
 function renderSuggestions() {
   const part = parties[currentPartIndex];
@@ -118,88 +163,5 @@ function renderSuggestions() {
 
   // masquer toutes les sections
   document.querySelectorAll(".suggestions section").forEach(s => s.style.display = "none");
-  const currentSection = document.querySelector(`.suggestions section[data-cat="${part}"]`);
-  currentSection.style.display = "block";
+  const currentSecti
 
-  const cardsContainer = document.getElementById(`cards-${part}`);
-  cardsContainer.innerHTML = "";
-
-  // Filtrage intelligent
-  let resultats = chants.filter(c =>
-    (c.categorie?.toLowerCase() || "").includes(part) &&
-    (!c.rite || c.rite.includes(rite)) &&
-    (!c.temps || c.temps.includes(saison))
-  );
-
-  // Si rien trouvé, on prend des chants généraux
-  if (resultats.length === 0 && chants.length > 0) {
-    resultats = chants.sort(() => 0.5 - Math.random()).slice(0, 5);
-  }
-
-  // Afficher les suggestions
-  resultats.slice(0, 5).forEach(chant => {
-    const div = document.createElement("div");
-    div.className = "card card-title-only";
-    div.innerHTML = `<h3>${chant.titre}</h3>`;
-
-    if (selectedChants[part].includes(chant)) div.classList.add("selected");
-
-    div.addEventListener("click", () => {
-      if (selectedChants[part].includes(chant)) {
-        selectedChants[part] = selectedChants[part].filter(c => c !== chant);
-        div.classList.remove("selected");
-      } else {
-        selectedChants[part].push(chant);
-        div.classList.add("selected");
-      }
-      majFeuilleMesse();
-    });
-
-    cardsContainer.appendChild(div);
-  });
-
-  majFeuilleMesse();
-}
-
-// === NAVIGATION ENTRE PARTIES ===
-function changerPartie(direction) {
-  currentPartIndex += direction;
-  if (currentPartIndex < 0) currentPartIndex = 0;
-  if (currentPartIndex >= parties.length) currentPartIndex = parties.length - 1;
-  renderSuggestions();
-}
-
-// === MISE À JOUR DE LA FEUILLE DE MESSE ===
-function majFeuilleMesse() {
-  const rite = riteSelect.value;
-  const date = dateInput.value || "—";
-
-  // Mise à jour des infos d’en-tête
-  sheetDate.textContent = date.split("-").reverse().join("/");
-  sheetRite.textContent = rite === "ordinaire" ? "Rite ordinaire" : "Rite extraordinaire";
-  document.querySelector(".mass-title").textContent = nomDuJourLiturgique(date);
-
-  sheetContent.innerHTML = "";
-
-  parties.forEach(part => {
-    if (selectedChants[part].length === 0) return;
-    const bloc = document.createElement("section");
-    bloc.innerHTML = `<h3>${titrePartie(part)}</h3>`;
-    selectedChants[part].forEach(ch => {
-      bloc.innerHTML += `<p><strong>${ch.titre}</strong></p>`;
-    });
-    sheetContent.appendChild(bloc);
-  });
-}
-
-// === TRADUCTION DES NOMS DE PARTIES ===
-function titrePartie(part) {
-  switch (part) {
-    case "entree": return "Chant d'entrée";
-    case "offertoire": return "Chant d'offertoire";
-    case "communion": return "Chant de communion";
-    case "envoi": return "Chant d'envoi";
-    case "antienne_mariale": return "Antienne mariale";
-    default: return part;
-  }
-}
