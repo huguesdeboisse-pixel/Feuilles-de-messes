@@ -192,3 +192,19 @@ body.extra .only-extra { display: block; }
     min-height: 297mm;
   }
 }
+.boutons-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.btn-nav {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn-nav:hover {
+  background-color: #555;
+}
