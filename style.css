@@ -208,3 +208,35 @@ body.extra .only-extra { display: block; }
 .btn-nav:hover {
   background-color: #555;
 }
+.chant-card {
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 8px;
+  margin: 6px 0;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.chant-card:hover {
+  background: #f0f0f0;
+}
+.chant-card.selected {
+  background: #d8e9d8;
+  border-color: #2e7d32;
+}
+
+.boutons-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.btn-nav {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn-nav:hover {
+  background-color: #555;
+}
