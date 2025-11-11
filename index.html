@@ -1,163 +1,57 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Feuille de Messe</title>
-
-  <!-- Styles globaux du site -->
   <link rel="stylesheet" href="style.css" />
-  <!-- Styles minimum utiles si besoin (peuvent rester dans style.css) -->
-  <style>
-    /* Grille principale */
-    .app{display:grid;grid-template-columns:420px 1fr;gap:24px;max-width:1600px;margin:0 auto;padding:24px;}
-    /* Panneau gauche ajustable */
-    .left-panel{background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:20px;display:flex;flex-direction:column;resize:horizontal;overflow:auto;min-width:320px;max-width:720px}
-    .field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
-    .hint{font-size:.85rem;color:#666;margin-top:6px}
-    hr{border:none;border-top:1px solid #eee;margin:16px 0}
-
-    /* Suggestions */
-    .suggestions section{margin-bottom:18px}
-    .section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-    .section-header h2{font-size:1.05rem;margin:0}
-    .btn-ghost{background:#f4f4f5;border:1px solid #e5e7eb;border-radius:8px;padding:6px 10px;cursor:pointer}
-    .btn-ghost:hover{background:#eee}
-
-    .cards{display:flex;flex-direction:column;gap:8px}
-    .card{border:1px solid #e5e7eb;border-radius:10px;padding:10px;background:#fdfdfd;cursor:pointer;transition:background .2s ease,transform .1s ease}
-    .card:hover{background:#faf7ee;transform:translateY(-1px)}
-    .card.selected{background:#e4f4e2;border-color:#317a35}
-    .card.card-title-only h3{margin:4px 0;font-size:.98rem}
-
-    /* Barre de contrôle (↻ / préc / suiv) */
-    .step-controls{display:flex;align-items:center;gap:10px;justify-content:space-between;margin-top:12px}
-    .btn{border:none;border-radius:8px;padding:8px 14px;color:#fff;background:#317a35;cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,.12)}
-    .btn.secondary{background:#6a1b9a}
-    .btn:disabled{opacity:.5;cursor:not-allowed}
-    /* Variante compacte pour éviter des boutons trop gros */
-    .btn, .btn-ghost{font-size:.92rem;line-height:1}
-
-    /* Colonne droite : feuille A4 visuelle */
-    .sheet{background:none}
-    .sheet .paper{background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:32px;min-height:85vh}
-    .sheet-header{color:#444;margin-bottom:10px}
-    .season-pill{display:inline-block;padding:2px 10px;border-radius:999px;background:#e9f6ea;color:#245e28;font-size:.85rem}
-    .mass-title{margin:6px 0 18px 0}
-
-    /* Accessibilité */
-    label{font-weight:600}
-    input[type="date"],select{height:38px;border:1px solid #e5e7eb;border-radius:8px;padding:0 10px}
-  </style>
 </head>
 <body>
-
   <div class="app">
-    <!-- COLONNE GAUCHE : paramètres + suggestions -->
+    <!-- Colonne gauche : paramètres + suggestions -->
     <aside class="left-panel">
       <h1>Feuille de Messe</h1>
 
-      <!-- Paramètres -->
-      <div class="params">
-        <div class="field">
-          <label for="dateInput">Date</label>
-          <input type="date" id="dateInput" />
-        </div>
+      <div class="field">
+        <label for="dateInput">Date</label>
+        <input type="date" id="dateInput" />
+      </div>
 
-        <div class="field">
-          <label for="riteSelect">Rite</label>
-          <select id="riteSelect">
-            <option value="ordinaire">Ordinaire</option>
-            <option value="extraordinaire">Extraordinaire</option>
-          </select>
-        </div>
+      <div class="field">
+        <label for="riteSelect">Rite</label>
+        <select id="riteSelect">
+          <option value="ordinaire" selected>Ordinaire</option>
+          <option value="extraordinaire">Extraordinaire</option>
+        </select>
+      </div>
 
-        <div class="field">
-          <label for="carnetSelect">Carnet de chants</label>
-          <select id="carnetSelect"><!-- alimenté par JS --></select>
-          <p class="hint">Choisir “Tous les carnets” pour rechercher globalement (pas de renvoi de page).</p>
-        </div>
+      <div class="field">
+        <label for="carnetSelect">Carnet de chants</label>
+        <select id="carnetSelect"></select>
       </div>
 
       <hr />
 
-      <!-- Suggestions : une seule section visible à la fois -->
-      <div class="suggestions">
-        <section data-cat="entree">
-          <div class="section-header">
-            <h2>Entrée</h2>
-            <button class="btn-ghost other" id="reloadTop">↻</button>
-          </div>
-          <div class="cards" id="cards-entree"></div>
-        </section>
-
-        <section data-cat="offertoire" style="display:none;">
-          <div class="section-header">
-            <h2>Offertoire</h2>
-            <button class="btn-ghost other">↻</button>
-          </div>
-          <div class="cards" id="cards-offertoire"></div>
-        </section>
-
-        <section data-cat="communion" style="display:none;">
-          <div class="section-header">
-            <h2>Communion</h2>
-            <button class="btn-ghost other">↻</button>
-          </div>
-          <div class="cards" id="cards-communion"></div>
-        </section>
-
-        <section data-cat="envoi" style="display:none;">
-          <div class="section-header">
-            <h2>Envoi</h2>
-            <button class="btn-ghost other">↻</button>
-          </div>
-          <div class="cards" id="cards-envoi"></div>
-        </section>
-
-        <section data-cat="antienne_mariale" style="display:none;">
-          <div class="section-header">
-            <h2>Antienne mariale (RE)</h2>
-            <button class="btn-ghost other">↻</button>
-          </div>
-          <div class="cards" id="cards-antienne_mariale"></div>
-        </section>
-      </div>
-
-      <!-- Barre d’actions compacte (évite les gros pavés) -->
-      <div class="step-controls" id="stepControls">
-        <button class="btn-ghost" id="reloadBtn" title="Autres suggestions">↻</button>
-        <div style="margin-left:auto;display:flex;gap:8px;">
-          <button class="btn secondary" id="prevBtn">Partie précédente</button>
-          <button class="btn" id="nextBtn">Partie suivante</button>
-        </div>
-      </div>
+      <div id="suggestions"></div>
     </aside>
 
-    <!-- COLONNE DROITE : feuille de messe -->
+    <!-- Colonne droite : feuille -->
     <main class="sheet">
-      <div class="paper">
+      <section class="paper">
         <header class="sheet-header">
-          <span id="sheetDate">—</span> •
-          <span id="sheetSeason" class="season-pill">Temps ordinaire</span> •
-          <span id="sheetRite">Rite ordinaire</span>
-          <h2 class="mass-title">Feuille de Messe</h2>
+          <div class="meta">
+            <span id="dateLisible"></span>
+            <span id="seasonPill" class="pill">—</span>
+            <span id="ritePill" class="pill outline">Rite</span>
+          </div>
+          <h2 id="titreMesse" class="mass-title">Feuille de Messe</h2>
         </header>
 
-        <div class="sheet-content" id="sheetContent">
-          <section id="out-entree"></section>
-          <section id="out-offertoire"></section>
-          <section id="out-communion"></section>
-          <section id="out-envoi"></section>
-          <section id="out-antienne_mariale"></section>
-        </div>
-      </div>
+        <article id="sheetContent" class="sheet-content"></article>
+      </section>
     </main>
   </div>
 
-  <!-- Vos scripts (gardez vos fichiers actuels) -->
-  <!-- sanctoral.js optionnel si vous l’utilisez -->
-  <!-- <script type="module" src="sanctoral.js"></script> -->
-  <script src="script.js" type="module"></script>
+  <script src="script.js"></script>
 </body>
 </html>
