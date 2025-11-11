@@ -13,6 +13,18 @@ const suggestionsDiv = document.getElementById("suggestions");
 const feuilleDiv = document.getElementById("feuille");
 const btnSuivante = document.getElementById("suivante");
 const btnPrecedente = document.getElementById("precedente");
+function definirCouleurLiturgique() {
+  const date = document.getElementById("date").value;
+  const mois = date.split("-")[1];
+  let couleur = "vert";
+
+  if (["12", "01"].includes(mois)) couleur = "violet"; // Avent
+  if (["02", "03"].includes(mois)) couleur = "violet"; // Carême
+  if (["04", "05"].includes(mois)) couleur = "or";     // Pâques
+  if (["06"].includes(mois)) couleur = "rouge";        // Pentecôte
+  if (["11"].includes(mois)) couleur = "vert";         // Temps ordinaire
+  document.body.setAttribute("data-couleur", couleur);
+}
 
 // --- Charger un carnet JSON ---
 async function chargerCarnet(fichier) {
