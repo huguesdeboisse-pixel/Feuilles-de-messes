@@ -1,0 +1,2559 @@
+{
+  "yearly": [
+    {
+      "month": 1,
+      "day": 1,
+      "title": "Circoncision du Seigneur (Octave de Noël)",
+      "rank": "I classe",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 2,
+      "title": "Très Saint Nom de Jésus",
+      "rank": "II classe",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 3,
+      "title": "Férie du Temps de Noël",
+      "rank": "Férie",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 4,
+      "title": "Férie du Temps de Noël",
+      "rank": "Férie",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 5,
+      "title": "Vigile de l’Épiphanie",
+      "rank": "II classe",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 6,
+      "title": "Épiphanie du Seigneur",
+      "rank": "I classe",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 7,
+      "title": "Férie après l’Épiphanie",
+      "rank": "Férie",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 8,
+      "title": "Férie après l’Épiphanie",
+      "rank": "Férie",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 9,
+      "title": "Férie après l’Épiphanie",
+      "rank": "Férie",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 10,
+      "title": "Férie après l’Épiphanie",
+      "rank": "Férie",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 11,
+      "title": "Férie après l’Épiphanie",
+      "rank": "Férie",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 12,
+      "title": "Férie après l’Épiphanie",
+      "rank": "Férie",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 13,
+      "title": "Férie après l’Épiphanie",
+      "rank": "Férie",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 14,
+      "title": "Saint Hilaire",
+      "rank": "III classe",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 15,
+      "title": "Saint Paul, premier ermite",
+      "rank": "III classe",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 16,
+      "title": "Saint Marcel I, pape et martyr",
+      "rank": "III classe",
+      "color": "rouge"
+    },
+    {
+      "month": 1,
+      "day": 17,
+      "title": "Saint Antoine, abbé",
+      "rank": "III classe",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 18,
+      "title": "Chaire de Saint Pierre à Rome",
+      "rank": "III classe",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 19,
+      "title": "Saint Marius et ses compagnons, martyrs",
+      "rank": "III classe",
+      "color": "rouge"
+    },
+    {
+      "month": 1,
+      "day": 20,
+      "title": "Saint Fabien, pape et martyr ; Saint Sébastien, martyr",
+      "rank": "III classe",
+      "color": "rouge"
+    },
+    {
+      "month": 1,
+      "day": 21,
+      "title": "Sainte Agnès, vierge et martyre",
+      "rank": "III classe",
+      "color": "rouge"
+    },
+    {
+      "month": 1,
+      "day": 22,
+      "title": "Saint Vincent, diacre et martyr",
+      "rank": "III classe",
+      "color": "rouge"
+    },
+    {
+      "month": 1,
+      "day": 23,
+      "title": "Saint Raymond de Penyafort",
+      "rank": "III classe",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 24,
+      "title": "Saint Timothée, évêque et martyr",
+      "rank": "III classe",
+      "color": "rouge"
+    },
+    {
+      "month": 1,
+      "day": 25,
+      "title": "Conversion de Saint Paul",
+      "rank": "III classe",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 26,
+      "title": "Saint Polycarpe, évêque et martyr",
+      "rank": "III classe",
+      "color": "rouge"
+    },
+    {
+      "month": 1,
+      "day": 27,
+      "title": "Sainte Angèle Mérici",
+      "rank": "III classe",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 28,
+      "title": "Saint Pierre Nolasque",
+      "rank": "III classe",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 29,
+      "title": "Saint François de Sales",
+      "rank": "III classe",
+      "color": "blanc"
+    },
+    {
+      "month": 1,
+      "day": 30,
+      "title": "Sainte Martine, vierge et martyre",
+      "rank": "III classe",
+      "color": "rouge"
+    },
+    {
+      "month": 1,
+      "day": 31,
+      "title": "Saint Jean Bosco",
+      "rank": "III classe",
+      "color": "blanc"
+  },
+  {
+    "month": 2,
+    "day": 1,
+    "title": "Saint Ignace d'Antioche, évêque et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 2,
+    "day": 2,
+    "title": "Purification de la Sainte Vierge (Chandeleur)",
+    "rank": "II classe",
+    "color": "blanc"
+  },
+  {
+    "month": 2,
+    "day": 3,
+    "title": "Saint Blaise, évêque et martyr ; Saint Ansgar",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 2,
+    "day": 4,
+    "title": "Saint André Corsini, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 2,
+    "day": 5,
+    "title": "Sainte Agathe, vierge et martyre",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 2,
+    "day": 6,
+    "title": "Saint Tite, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 2,
+    "day": 7,
+    "title": "Saint Romuald, abbé",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 2,
+    "day": 8,
+    "title": "Saint Jean de Matha, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 2,
+    "day": 9,
+    "title": "Saint Cyrille d'Alexandrie, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 2,
+    "day": 10,
+    "title": "Saint Scholastique, vierge",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 2,
+    "day": 11,
+    "title": "Apparition de Notre-Dame de Lourdes",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 2,
+    "day": 12,
+    "title": "Septuagésime ou fête du jour",
+    "rank": "Variable",
+    "color": "violet"
+  },
+  {
+    "month": 2,
+    "day": 13,
+    "title": "Férie de la Septuagésime",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 2,
+    "day": 14,
+    "title": "Saint Valentin, prêtre et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 2,
+    "day": 15,
+    "title": "Férie de la Septuagésime",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 2,
+    "day": 16,
+    "title": "Férie de la Septuagésime",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 2,
+    "day": 17,
+    "title": "Férie de la Septuagésime",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 2,
+    "day": 18,
+    "title": "Saint Siméon, évêque et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 2,
+    "day": 19,
+    "title": "Férie de la Sexagésime",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 2,
+    "day": 20,
+    "title": "Férie de la Sexagésime",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 2,
+    "day": 21,
+    "title": "Saint Pierre Damien, évêque et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 2,
+    "day": 22,
+    "title": "Chaire de Saint Pierre à Antioche",
+    "rank": "II classe",
+    "color": "blanc"
+  },
+  {
+    "month": 2,
+    "day": 23,
+    "title": "Saint Pierre Damien (selon années), ou féries de Sexagésime",
+    "rank": "III classe ou Férie",
+    "color": "blanc"
+  },
+  {
+    "month": 2,
+    "day": 24,
+    "title": "Saint Matthias, apôtre",
+    "rank": "II classe",
+    "color": "rouge"
+  },
+  {
+    "month": 2,
+    "day": 25,
+    "title": "Férie de la Quinquagésime",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 2,
+    "day": 26,
+    "title": "Saint Alexandre, évêque",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 2,
+    "day": 27,
+    "title": "Saint Léandre, évêque",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 2,
+    "day": 28,
+    "title": "Saint Romain, abbé",
+    "rank": "III classe",
+    "color": "blanc"
+  }
+  {
+    "month": 3,
+    "day": 1,
+    "title": "Férie de la Quinquagésime ou Saint Albin, évêque",
+    "rank": "Férie ou III classe",
+    "color": "violet"
+  },
+  {
+    "month": 3,
+    "day": 2,
+    "title": "Saint Simplice, pape",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 3,
+    "day": 3,
+    "title": "Saint Cunégonde, impératrice",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 3,
+    "day": 4,
+    "title": "Saint Casimir",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 3,
+    "day": 5,
+    "title": "Férie de Carême",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 3,
+    "day": 6,
+    "title": "Férie de Carême",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 3,
+    "day": 7,
+    "title": "Saint Thomas d’Aquin, confesseur et docteur",
+    "rank": "II classe",
+    "color": "blanc"
+  },
+  {
+    "month": 3,
+    "day": 8,
+    "title": "Saint Jean de Dieu, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 3,
+    "day": 9,
+    "title": "Saint François de Rome, veuve",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 3,
+    "day": 10,
+    "title": "Férie de Carême",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 3,
+    "day": 11,
+    "title": "Férie de Carême",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 3,
+    "day": 12,
+    "title": "Saint Grégoire le Grand, pape et docteur",
+    "rank": "II classe",
+    "color": "blanc"
+  },
+  {
+    "month": 3,
+    "day": 13,
+    "title": "Férie de Carême",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 3,
+    "day": 14,
+    "title": "Férie de Carême",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 3,
+    "day": 15,
+    "title": "Férie de Carême",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 3,
+    "day": 16,
+    "title": "Férie de Carême",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 3,
+    "day": 17,
+    "title": "Saint Patrick, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 3,
+    "day": 18,
+    "title": "Saint Cyrille de Jérusalem, évêque et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 3,
+    "day": 19,
+    "title": "Saint Joseph, époux de la Sainte Vierge, patron de l’Église universelle",
+    "rank": "I classe",
+    "color": "blanc"
+  },
+  {
+    "month": 3,
+    "day": 20,
+    "title": "Férie de Carême",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 3,
+    "day": 21,
+    "title": "Saint Benoît, abbé",
+    "rank": "II classe",
+    "color": "blanc"
+  },
+  {
+    "month": 3,
+    "day": 22,
+    "title": "Férie de Carême",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 3,
+    "day": 23,
+    "title": "Férie de Carême",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 3,
+    "day": 24,
+    "title": "Saint Gabriel Archange",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 3,
+    "day": 25,
+    "title": "Annonciation de la Sainte Vierge",
+    "rank": "I classe",
+    "color": "blanc"
+  },
+  {
+    "month": 3,
+    "day": 26,
+    "title": "Férie de Carême",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 3,
+    "day": 27,
+    "title": "Saint Jean Damascène, confesseur et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 3,
+    "day": 28,
+    "title": "Férie de Carême",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 3,
+    "day": 29,
+    "title": "Férie de Carême",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 3,
+    "day": 30,
+    "title": "Férie de Carême",
+    "rank": "Férie",
+    "color": "violet"
+  },
+  {
+    "month": 3,
+    "day": 31,
+    "title": "Férie de Carême",
+    "rank": "Férie",
+    "color": "violet"
+  }
+[
+  {
+    "month": 4,
+    "day": 1,
+    "title": "Saint Hugues, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 4,
+    "day": 2,
+    "title": "Saint François de Paule, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 4,
+    "day": 3,
+    "title": "Saint Richard, évêque",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 4,
+    "day": 4,
+    "title": "Saint Isidore, évêque et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 4,
+    "day": 5,
+    "title": "Saint Vincent Ferrier, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 4,
+    "day": 6,
+    "title": "Saint Guillaume, abbé",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 4,
+    "day": 7,
+    "title": "Saint Jean-Baptiste de La Salle, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 4,
+    "day": 8,
+    "title": "Saint Albert de Jérusalem, évêque et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 4,
+    "day": 9,
+    "title": "Saint Maryam (Marie Clopas) – aucune fête universelle",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 4,
+    "day": 10,
+    "title": "Les Sept Douleurs de la Sainte Vierge (ancienne date) — supprimé du sanctoral 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 4,
+    "day": 11,
+    "title": "Saint Léon Ier, pape et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 4,
+    "day": 12,
+    "title": "Saint Jules Ier, pape",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 4,
+    "day": 13,
+    "title": "Saint Herménégilde, martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 4,
+    "day": 14,
+    "title": "Saint Justin, martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 4,
+    "day": 15,
+    "title": "Saints Tiburce, Valérien et Maxime, martyrs",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 4,
+    "day": 16,
+    "title": "Saint Benoît-Joseph Labre, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 4,
+    "day": 17,
+    "title": "Saint Anicet, pape et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 4,
+    "day": 18,
+    "title": "Saint Apollonius, martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 4,
+    "day": 19,
+    "title": "Saint Léon IX, pape",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 4,
+    "day": 20,
+    "title": "Saint Anselme, évêque et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 4,
+    "day": 21,
+    "title": "Saint Anselme (selon années) ou fête du jour — pas de fête fixe universelle",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 4,
+    "day": 22,
+    "title": "Saints Soter et Caïus, papes et martyrs",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 4,
+    "day": 23,
+    "title": "Saint Georges, martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 4,
+    "day": 24,
+    "title": "Saint Fidèle de Sigmaringen, martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 4,
+    "day": 25,
+    "title": "Saint Marc, évangéliste",
+    "rank": "II classe",
+    "color": "rouge"
+  },
+  {
+    "month": 4,
+    "day": 26,
+    "title": "Saints Clet et Marcellin, papes et martyrs",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 4,
+    "day": 27,
+    "title": "Saint Pierre Canisius, confesseur et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 4,
+    "day": 28,
+    "title": "Saint Paul de la Croix, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 4,
+    "day": 29,
+    "title": "Saint Pierre de Vérone (Pierre Martyr), martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 4,
+    "day": 30,
+    "title": "Saint Pie V, pape et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 5,
+    "day": 1,
+    "title": "Saint Joseph Artisan (Mémoire) — ajouté en 1955",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 5,
+    "day": 2,
+    "title": "Saint Athanase, évêque et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 5,
+    "day": 3,
+    "title": "Invention de la Sainte Croix",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 5,
+    "day": 4,
+    "title": "Saint Monique, veuve",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 5,
+    "day": 5,
+    "title": "Saint Pie V, pape et confesseur (ancienne date) — déplacé au 30 avril en 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 5,
+    "day": 6,
+    "title": "Saint Jean devant la Porte Latine",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 5,
+    "day": 7,
+    "title": "Saint Stanislas, évêque et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 5,
+    "day": 8,
+    "title": "Apparition de Saint Michel Archange",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 5,
+    "day": 9,
+    "title": "Saint Grégoire de Nazianze, évêque et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 5,
+    "day": 10,
+    "title": "Saint Antonin, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 5,
+    "day": 11,
+    "title": "Saints Philippe et Jacques, apôtres",
+    "rank": "II classe",
+    "color": "rouge"
+  },
+  {
+    "month": 5,
+    "day": 12,
+    "title": "Saint Nérée, Achillée et Domitille, martyrs",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 5,
+    "day": 13,
+    "title": "Saint Robert Bellarmin (selon années) — pas de fête universelle fixe",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 5,
+    "day": 14,
+    "title": "Saint Boniface, martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 5,
+    "day": 15,
+    "title": "Saint Jean-Baptiste de La Salle (ancienne date) — déplacé au 7 avril",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 5,
+    "day": 16,
+    "title": "Saint Ubald, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 5,
+    "day": 17,
+    "title": "Saint Pascal Baylon, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 5,
+    "day": 18,
+    "title": "Saint Venant, martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 5,
+    "day": 19,
+    "title": "Saint Pierre Célestin (Célestin V), pape et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 5,
+    "day": 20,
+    "title": "Saint Bernardin de Sienne, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 5,
+    "day": 21,
+    "title": "Saints Constantin et Compagnons, martyrs — aucune fête universelle 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 5,
+    "day": 22,
+    "title": "Sainte Rita de Cascia — pas au calendrier universel 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 5,
+    "day": 23,
+    "title": "Saint Jean-Baptiste de Rossi, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 5,
+    "day": 24,
+    "title": "Notre-Dame Auxiliatrice (Marie Aide des Chrétiens)",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 5,
+    "day": 25,
+    "title": "Saint Grégoire VII, pape et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 5,
+    "day": 26,
+    "title": "Saint Philippe Néri, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 5,
+    "day": 27,
+    "title": "Saint Bède le Vénérable, prêtre et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 5,
+    "day": 28,
+    "title": "Saint Augustin de Cantorbéry, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 5,
+    "day": 29,
+    "title": "Saint Marie-Madeleine de Pazzi, vierge",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 5,
+    "day": 30,
+    "title": "Saint Félix Ier, pape et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 5,
+    "day": 31,
+    "title": "Marie Reine (fête instituée en 1954)",
+    "rank": "II classe",
+    "color": "blanc"
+  },
+  {
+    "month": 6,
+    "day": 1,
+    "title": "Saint Justin, martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 6,
+    "day": 2,
+    "title": "Saints Marcelin et Pierre, martyrs",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 6,
+    "day": 3,
+    "title": "Saint Charles Lwanga et ses compagnons, martyrs",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 6,
+    "day": 4,
+    "title": "Saint François Caracciolo, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 6,
+    "day": 5,
+    "title": "Saint Boniface, évêque et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 6,
+    "day": 6,
+    "title": "Saint Norbert, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 6,
+    "day": 7,
+    "title": "Saint Robert de Newminster, abbé — pas de fête universelle 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 6,
+    "day": 8,
+    "title": "Saint Médard, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 6,
+    "day": 9,
+    "title": "Saints Primus et Félicien, martyrs",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 6,
+    "day": 10,
+    "title": "Saint Marguerite de Cortone (non universel en 1962)",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 6,
+    "day": 11,
+    "title": "Saint Barnabé, apôtre",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 6,
+    "day": 12,
+    "title": "Saint Jean de Sahagún, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 6,
+    "day": 13,
+    "title": "Saint Antoine de Padoue, confesseur et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 6,
+    "day": 14,
+    "title": "Saint Basile le Grand (ancienne date) — non universel en 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 6,
+    "day": 15,
+    "title": "Saint Vit, modeste et Crescence, martyrs",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 6,
+    "day": 16,
+    "title": "Saint Jean-François Régis, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 6,
+    "day": 17,
+    "title": "Saint Grégoire Barbarigo, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 6,
+    "day": 18,
+    "title": "Saint Ephrem, diacre et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 6,
+    "day": 19,
+    "title": "Saint Julienne Falconieri (pas dans le calendrier universel 1962)",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 6,
+    "day": 20,
+    "title": "Saint Silverius, pape et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 6,
+    "day": 21,
+    "title": "Saint Louis de Gonzague, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 6,
+    "day": 22,
+    "title": "Saint Paulin de Nole, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 6,
+    "day": 23,
+    "title": "Vigile de la Nativité de Saint Jean-Baptiste",
+    "rank": "II classe",
+    "color": "violet"
+  },
+  {
+    "month": 6,
+    "day": 24,
+    "title": "Nativité de Saint Jean-Baptiste",
+    "rank": "I classe",
+    "color": "blanc"
+  },
+  {
+    "month": 6,
+    "day": 25,
+    "title": "Saint Guillaume, abbé",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 6,
+    "day": 26,
+    "title": "Saints Jean et Paul, martyrs",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 6,
+    "day": 27,
+    "title": "Saint Ladislas, roi et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 6,
+    "day": 28,
+    "title": "Vigile des Saints Apôtres Pierre et Paul",
+    "rank": "II classe",
+    "color": "violet"
+  },
+  {
+    "month": 6,
+    "day": 29,
+    "title": "Saints Pierre et Paul, apôtres",
+    "rank": "I classe",
+    "color": "rouge"
+  },
+  {
+    "month": 6,
+    "day": 30,
+    "title": "Saint Paul, apôtre (Commemoration de Saint Pierre)",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 7,
+    "day": 1,
+    "title": "Précieuse-Sang de Notre-Seigneur Jésus-Christ",
+    "rank": "I classe",
+    "color": "rouge"
+  },
+  {
+    "month": 7,
+    "day": 2,
+    "title": "Visitation de la Sainte Vierge",
+    "rank": "II classe",
+    "color": "blanc"
+  },
+  {
+    "month": 7,
+    "day": 3,
+    "title": "Saint Irénée, évêque et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 7,
+    "day": 4,
+    "title": "Saint Martinien, martyr — pas au calendrier universel",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 7,
+    "day": 5,
+    "title": "Saint Antoine-Marie Zaccaria, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 7,
+    "day": 6,
+    "title": "Sainte Marie-Goretti, vierge et martyre",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 7,
+    "day": 7,
+    "title": "Saints Cyrille et Méthode, évêques et confesseurs",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 7,
+    "day": 8,
+    "title": "Saint Elisabeth du Portugal, reine et veuve",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 7,
+    "day": 9,
+    "title": "Ss. Martyrs de Gorcum",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 7,
+    "day": 10,
+    "title": "Sept Frères martyrs — pas de fête universelle 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 7,
+    "day": 11,
+    "title": "Saint Pie Ier, pape et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 7,
+    "day": 12,
+    "title": "Saint Jean Gualbert, abbé",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 7,
+    "day": 13,
+    "title": "Saint Anaclet (Clet), pape et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 7,
+    "day": 14,
+    "title": "Saint Bonaventure, évêque et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 7,
+    "day": 15,
+    "title": "Saint Henri, empereur et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 7,
+    "day": 16,
+    "title": "Notre-Dame du Mont-Carmel",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 7,
+    "day": 17,
+    "title": "Saint Alexis, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 7,
+    "day": 18,
+    "title": "Saint Camille de Lellis, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 7,
+    "day": 19,
+    "title": "Saint Vincent de Paul (ancienne date) — déplacé au 19 juillet dans certains propres, pas universel",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 7,
+    "day": 20,
+    "title": "Saint Jérôme Émilien, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 7,
+    "day": 21,
+    "title": "Saint Laurent de Brindes, confesseur et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 7,
+    "day": 22,
+    "title": "Sainte Marie-Madeleine, pénitente",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 7,
+    "day": 23,
+    "title": "Saint Apollinaire, évêque et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 7,
+    "day": 24,
+    "title": "Sainte Christine, vierge et martyre",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 7,
+    "day": 25,
+    "title": "Saint Jacques le Majeur, apôtre",
+    "rank": "II classe",
+    "color": "rouge"
+  },
+  {
+    "month": 7,
+    "day": 26,
+    "title": "Sainte Anne, mère de la Sainte Vierge",
+    "rank": "II classe",
+    "color": "blanc"
+  },
+  {
+    "month": 7,
+    "day": 27,
+    "title": "Saint Pantaleon, martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 7,
+    "day": 28,
+    "title": "Saint Nazaire et saint Celse, martyrs",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 7,
+    "day": 29,
+    "title": "Sainte Marthe, vierge",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 7,
+    "day": 30,
+    "title": "Saints Abdon et Sennen, martyrs",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 7,
+    "day": 31,
+    "title": "Saint Ignace de Loyola, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 8,
+    "day": 1,
+    "title": "Saint Pierre aux Liens",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 8,
+    "day": 2,
+    "title": "Saint Alphonse de Liguori, évêque et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 8,
+    "day": 3,
+    "title": "Invention de saint Étienne, protomartyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 8,
+    "day": 4,
+    "title": "Saint Dominique, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 8,
+    "day": 5,
+    "title": "Dédicace de Sainte-Marie-Majeure",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 8,
+    "day": 6,
+    "title": "Transfiguration du Seigneur",
+    "rank": "II classe",
+    "color": "blanc"
+  },
+  {
+    "month": 8,
+    "day": 7,
+    "title": "Saint Donat, évêque et confesseur — non universel en 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 8,
+    "day": 8,
+    "title": "Saint Jean-Marie Vianney, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 8,
+    "day": 9,
+    "title": "Saint Romain, martyr — pas de fête universelle 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 8,
+    "day": 10,
+    "title": "Saint Laurent, diacre et martyr",
+    "rank": "II classe",
+    "color": "rouge"
+  },
+  {
+    "month": 8,
+    "day": 11,
+    "title": "Sainte Philomène — non universelle en 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 8,
+    "day": 12,
+    "title": "Saint Claire, vierge",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 8,
+    "day": 13,
+    "title": "Saint Hippolyte et saint Cassien, martyrs",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 8,
+    "day": 14,
+    "title": "Vigile de l’Assomption",
+    "rank": "II classe",
+    "color": "violet"
+  },
+  {
+    "month": 8,
+    "day": 15,
+    "title": "Assomption de la Sainte Vierge",
+    "rank": "I classe",
+    "color": "blanc"
+  },
+  {
+    "month": 8,
+    "day": 16,
+    "title": "Saint Joachim, père de la Sainte Vierge",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 8,
+    "day": 17,
+    "title": "Saint Hyacinthe, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 8,
+    "day": 18,
+    "title": "Saint Agapit, martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 8,
+    "day": 19,
+    "title": "Saint Jean Eudes, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 8,
+    "day": 20,
+    "title": "Saint Bernard, abbé et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 8,
+    "day": 21,
+    "title": "Saint Jean-François Régis (ancienne date), non universelle — férie",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 8,
+    "day": 22,
+    "title": "Immaculée Cœur de Marie",
+    "rank": "II classe",
+    "color": "blanc"
+  },
+  {
+    "month": 8,
+    "day": 23,
+    "title": "Saint Philippe Benizi, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 8,
+    "day": 24,
+    "title": "Saint Barthélemy, apôtre",
+    "rank": "II classe",
+    "color": "rouge"
+  },
+  {
+    "month": 8,
+    "day": 25,
+    "title": "Saint Louis, roi de France et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 8,
+    "day": 26,
+    "title": "Sainte Jeanne-Élisabeth Bichier des Âges — non universelle",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 8,
+    "day": 27,
+    "title": "Saint Joseph Calasanz, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 8,
+    "day": 28,
+    "title": "Saint Augustin, évêque et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 8,
+    "day": 29,
+    "title": "Décollation de Saint Jean-Baptiste",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 8,
+    "day": 30,
+    "title": "Saint Rose de Lima, vierge",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 8,
+    "day": 31,
+    "title": "Saint Raymond Nonnat, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 9,
+    "day": 1,
+    "title": "Saint Gilles, abbé",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 9,
+    "day": 2,
+    "title": "Saint Étienne, roi de Hongrie et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 9,
+    "day": 3,
+    "title": "Saint Pie X, pape et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 9,
+    "day": 4,
+    "title": "Saint Moïse, prophète — non universel dans le missel 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 9,
+    "day": 5,
+    "title": "Saint Laurent Justinien, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 9,
+    "day": 6,
+    "title": "Saints Zéphyrin, pape et martyr — non universel dans le 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 9,
+    "day": 7,
+    "title": "Saints Cloud (Clodoald) — non universel",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 9,
+    "day": 8,
+    "title": "Nativité de la Sainte Vierge",
+    "rank": "II classe",
+    "color": "blanc"
+  },
+  {
+    "month": 9,
+    "day": 9,
+    "title": "Saint Gorgon, martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 9,
+    "day": 10,
+    "title": "Saint Nicolas de Tolentino, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 9,
+    "day": 11,
+    "title": "Saints Prothe et Hyacinthe, martyrs",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 9,
+    "day": 12,
+    "title": "Très Saint Nom de Marie",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 9,
+    "day": 13,
+    "title": "Saint Philippe, évêque et martyr — non universel",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 9,
+    "day": 14,
+    "title": "Exaltation de la Sainte Croix",
+    "rank": "II classe",
+    "color": "rouge"
+  },
+  {
+    "month": 9,
+    "day": 15,
+    "title": "Les Sept Douleurs de la Sainte Vierge",
+    "rank": "II classe",
+    "color": "blanc"
+  },
+  {
+    "month": 9,
+    "day": 16,
+    "title": "Saint Corneille, pape et martyr, et Saint Cyprien, évêque et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 9,
+    "day": 17,
+    "title": "Les Stigmates de Saint François d’Assise",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 9,
+    "day": 18,
+    "title": "Saint Joseph de Cupertino, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 9,
+    "day": 19,
+    "title": "Saint Janvier, évêque et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 9,
+    "day": 20,
+    "title": "Saints Eustache et compagnons, martyrs",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 9,
+    "day": 21,
+    "title": "Saint Matthieu, apôtre et évangéliste",
+    "rank": "II classe",
+    "color": "rouge"
+  },
+  {
+    "month": 9,
+    "day": 22,
+    "title": "Saint Thomas de Villeneuve, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 9,
+    "day": 23,
+    "title": "Saint Lin, pape et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 9,
+    "day": 24,
+    "title": "Notre-Dame de la Merci (de la Merced)",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 9,
+    "day": 25,
+    "title": "Saint Cléophas — non universel dans le 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 9,
+    "day": 26,
+    "title": "Saints Côme et Damien, martyrs",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 9,
+    "day": 27,
+    "title": "Saints Côme et Damien (selon années) ou férie — sans fête fixe universelle",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 9,
+    "day": 28,
+    "title": "Saint Wenceslas, duc et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 9,
+    "day": 29,
+    "title": "Saint Michel Archange",
+    "rank": "I classe",
+    "color": "blanc"
+  },
+  {
+    "month": 9,
+    "day": 30,
+    "title": "Saint Jérôme, prêtre et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 10,
+    "day": 1,
+    "title": "Sainte Thérèse de l'Enfant-Jésus, vierge",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 10,
+    "day": 2,
+    "title": "Sainte Anges des pauvres — pas dans le calendrier universel 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 10,
+    "day": 3,
+    "title": "Saint Thérèse de Lisieux (ancienne date) — déplacée au 1er octobre",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 10,
+    "day": 4,
+    "title": "Saint François d'Assise, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 10,
+    "day": 5,
+    "title": "Sainte Thérèse de l’Enfant-Jésus (selon années) — déjà célébrée le 1er",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 10,
+    "day": 6,
+    "title": "Saint Bruno, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 10,
+    "day": 7,
+    "title": "Notre-Dame du Rosaire",
+    "rank": "II classe",
+    "color": "blanc"
+  },
+  {
+    "month": 10,
+    "day": 8,
+    "title": "Saints Serge, Bacchus, Marcel et Apulée, martyrs — non universels",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 10,
+    "day": 9,
+    "title": "Saint Jean Léonardi, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 10,
+    "day": 10,
+    "title": "Saint François de Borgia, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 10,
+    "day": 11,
+    "title": "Maternité de la Sainte Vierge",
+    "rank": "II classe",
+    "color": "blanc"
+  },
+  {
+    "month": 10,
+    "day": 12,
+    "title": "Saint Wilfried, évêque et confesseur — non universel",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 10,
+    "day": 13,
+    "title": "Saint Édouard, roi et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 10,
+    "day": 14,
+    "title": "Saint Calixte Ier, pape et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 10,
+    "day": 15,
+    "title": "Sainte Thérèse d’Avila, vierge",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 10,
+    "day": 16,
+    "title": "Sainte Hedwige, duchesse et veuve",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 10,
+    "day": 17,
+    "title": "Saint Marguerite-Marie Alacoque, vierge",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 10,
+    "day": 18,
+    "title": "Saint Luc, évangéliste",
+    "rank": "II classe",
+    "color": "rouge"
+  },
+  {
+    "month": 10,
+    "day": 19,
+    "title": "Saint Pierre d'Alcantara, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 10,
+    "day": 20,
+    "title": "Saint Jean Canty, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 10,
+    "day": 21,
+    "title": "Sainte Ursule et ses compagnes, vierges et martyres",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 10,
+    "day": 22,
+    "title": "Sainte Marie-Salomé — non universelle en 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 10,
+    "day": 23,
+    "title": "Saint Antoine-Marie Claret, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 10,
+    "day": 24,
+    "title": "Saint Raphaël Archange",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 10,
+    "day": 25,
+    "title": "Les Saints Chrysanthus et Daria, martyrs",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 10,
+    "day": 26,
+    "title": "Saint Évariste, pape et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 10,
+    "day": 27,
+    "title": "Vigile des Saints Apôtres Simon et Jude",
+    "rank": "II classe",
+    "color": "violet"
+  },
+  {
+    "month": 10,
+    "day": 28,
+    "title": "Saints Simon et Jude, apôtres",
+    "rank": "II classe",
+    "color": "rouge"
+  },
+  {
+    "month": 10,
+    "day": 29,
+    "title": "Saint Narcisse, évêque — non universel",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 10,
+    "day": 30,
+    "title": "Saint Marcel, pape et martyr — commémoration possible mais pas de fête universelle 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 10,
+    "day": 31,
+    "title": "Vigile de la Toussaint",
+    "rank": "II classe",
+    "color": "violet"
+  },
+  {
+    "month": 11,
+    "day": 1,
+    "title": "Tous les Saints",
+    "rank": "I classe",
+    "color": "blanc"
+  },
+  {
+    "month": 11,
+    "day": 2,
+    "title": "Commémoration de tous les Fidèles Défunts",
+    "rank": "I classe (jour particulier)",
+    "color": "noir"
+  },
+  {
+    "month": 11,
+    "day": 3,
+    "title": "Saint Malachie, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 11,
+    "day": 4,
+    "title": "Saint Charles Borromée, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 11,
+    "day": 5,
+    "title": "Saints Zacharie et Élisabeth — non universel en 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 11,
+    "day": 6,
+    "title": "Saint Léonard, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 11,
+    "day": 7,
+    "title": "Saint Willibrord, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 11,
+    "day": 8,
+    "title": "Quatre Saints Couronnés, martyrs",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 11,
+    "day": 9,
+    "title": "Dédicace de la Basilique du Latran",
+    "rank": "II classe",
+    "color": "blanc"
+  },
+  {
+    "month": 11,
+    "day": 10,
+    "title": "Saint André Avellin, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 11,
+    "day": 11,
+    "title": "Saint Martin, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 11,
+    "day": 12,
+    "title": "Saint Martin Ier, pape et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 11,
+    "day": 13,
+    "title": "Saint Didace (Diego) d'Alcalá, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 11,
+    "day": 14,
+    "title": "Saint Josaphat, évêque et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 11,
+    "day": 15,
+    "title": "Saint Albert le Grand, évêque et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 11,
+    "day": 16,
+    "title": "Sainte Gertrude, vierge",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 11,
+    "day": 17,
+    "title": "Saint Grégoire le Thaumaturge, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 11,
+    "day": 18,
+    "title": "Dédicace des Basiliques de Saint Pierre et de Saint Paul",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 11,
+    "day": 19,
+    "title": "Saint Elisabeth de Hongrie, veuve",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 11,
+    "day": 20,
+    "title": "Saint Félix de Valois, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 11,
+    "day": 21,
+    "title": "Présentation de la Sainte Vierge",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 11,
+    "day": 22,
+    "title": "Sainte Cécile, vierge et martyre",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 11,
+    "day": 23,
+    "title": "Saint Clément Ier, pape et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 11,
+    "day": 24,
+    "title": "Saint Jean de la Croix, confesseur et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 11,
+    "day": 25,
+    "title": "Sainte Catherine d'Alexandrie, vierge et martyre",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 11,
+    "day": 26,
+    "title": "Saint Sylvestre, abbé — non universel en 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 11,
+    "day": 27,
+    "title": "Saint Maxime, évêque — non universel",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 11,
+    "day": 28,
+    "title": "Saint Jacques de la Marche, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 11,
+    "day": 29,
+    "title": "Saint Saturnin, martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 11,
+    "day": 30,
+    "title": "Saint André, apôtre",
+    "rank": "II classe",
+    "color": "rouge"
+  },
+  {
+    "month": 12,
+    "day": 1,
+    "title": "Saint Éloi, évêque et confesseur — non universel",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 12,
+    "day": 2,
+    "title": "Sainte Bibiane, vierge et martyre",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 12,
+    "day": 3,
+    "title": "Saint François Xavier, confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 12,
+    "day": 4,
+    "title": "Saint Pierre Chrysologue, évêque et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 12,
+    "day": 5,
+    "title": "Saint Sabas, abbé",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 12,
+    "day": 6,
+    "title": "Saint Nicolas, évêque et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 12,
+    "day": 7,
+    "title": "Saint Ambroise, évêque et docteur",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 12,
+    "day": 8,
+    "title": "Immaculée Conception de la Sainte Vierge",
+    "rank": "I classe",
+    "color": "blanc"
+  },
+  {
+    "month": 12,
+    "day": 9,
+    "title": "Saint Juan Diego — non universel (postérieur)",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 12,
+    "day": 10,
+    "title": "Saint Mélchiade, pape et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 12,
+    "day": 11,
+    "title": "Saint Damase Ier, pape",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 12,
+    "day": 12,
+    "title": "Notre-Dame de Guadalupe — non universel en 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 12,
+    "day": 13,
+    "title": "Sainte Lucie, vierge et martyre",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 12,
+    "day": 14,
+    "title": "Saint Jean de la Croix (ancienne place) — déplacé au 24 novembre",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 12,
+    "day": 15,
+    "title": "Sainte Christine — non universelle en 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 12,
+    "day": 16,
+    "title": "Saint Eusèbe, évêque et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 12,
+    "day": 17,
+    "title": "Saint Lazare, évêque — non universel en 1962",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 12,
+    "day": 18,
+    "title": "Notre-Dame de l’Attente — non universel (propre de certaines régions)",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 12,
+    "day": 19,
+    "title": "Saints Faustin et Jovite — non universel",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 12,
+    "day": 20,
+    "title": "Saint Dominique de Silos, abbé",
+    "rank": "III classe",
+    "color": "blanc"
+  },
+  {
+    "month": 12,
+    "day": 21,
+    "title": "Saint Thomas, apôtre",
+    "rank": "II classe",
+    "color": "rouge"
+  },
+  {
+    "month": 12,
+    "day": 22,
+    "title": "Sainte Françoise-Xavière Cabrini — canonisée après 1962 (non universelle)",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 12,
+    "day": 23,
+    "title": "Saint Jean de Kenty, confesseur — ancienne date",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 12,
+    "day": 24,
+    "title": "Vigile de Noël",
+    "rank": "I classe",
+    "color": "violet"
+  },
+  {
+    "month": 12,
+    "day": 25,
+    "title": "Nativité de Notre-Seigneur Jésus-Christ",
+    "rank": "I classe",
+    "color": "blanc"
+  },
+  {
+    "month": 12,
+    "day": 26,
+    "title": "Saint Étienne, premier martyr",
+    "rank": "II classe",
+    "color": "rouge"
+  },
+  {
+    "month": 12,
+    "day": 27,
+    "title": "Saint Jean, apôtre et évangéliste",
+    "rank": "II classe",
+    "color": "blanc"
+  },
+  {
+    "month": 12,
+    "day": 28,
+    "title": "Saints Innocents, martyrs",
+    "rank": "II classe",
+    "color": "rouge"
+  },
+  {
+    "month": 12,
+    "day": 29,
+    "title": "Saint Thomas Becket, évêque et martyr",
+    "rank": "III classe",
+    "color": "rouge"
+  },
+  {
+    "month": 12,
+    "day": 30,
+    "title": "Saint Sabinus, évêque et martyr — non universel",
+    "rank": "—",
+    "color": "—"
+  },
+  {
+    "month": 12,
+    "day": 31,
+    "title": "Saint Sylvestre Ier, pape et confesseur",
+    "rank": "III classe",
+    "color": "blanc"
+  }
+]
