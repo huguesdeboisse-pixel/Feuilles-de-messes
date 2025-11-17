@@ -1,0 +1,164 @@
+[
+  {
+    "id": "pentecost_sunday",
+    "title": "Dimanche de la Pentecôte",
+    "season": "pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 0,
+    "rank": "I classe",
+    "priority": 1,
+    "color": "rouge",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_tractus": false,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "pentecote",
+    "features": {
+      "sequence": "veni_sancte_spiritus",
+      "octave": true,
+      "preface": "pentecote",
+      "ferial_privilege": "I_classe"
+    },
+    "notes": "Solennité du Saint-Esprit ; fête de précepte."
+  },
+  {
+    "id": "pentecost_monday",
+    "title": "Lundi de Pentecôte",
+    "season": "pentecote",
+    "temporal_class": "feria",
+    "rank": "I classe",
+    "priority": 1,
+    "color": "rouge",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_tractus": false,
+    "has_credo": false,
+    "type": "temporal_feria",
+    "liturgical_phase": "octave_pentecote",
+    "features": {
+      "octave": true,
+      "preface": "pentecote",
+      "ferial_privilege": "I_classe"
+    },
+    "notes": "Férie privilégiée de Ière classe dans l’Octave de Pentecôte."
+  },
+  {
+    "id": "pentecost_tuesday",
+    "title": "Mardi de Pentecôte",
+    "season": "pentecote",
+    "temporal_class": "feria",
+    "rank": "I classe",
+    "priority": 1,
+    "color": "rouge",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_tractus": false,
+    "has_credo": false,
+    "type": "temporal_feria",
+    "liturgical_phase": "octave_pentecote",
+    "features": {
+      "octave": true,
+      "preface": "pentecote"
+    },
+    "notes": "Férie solennelle de l’Octave."
+  },
+  {
+    "id": "pentecost_wednesday",
+    "title": "Mercredi des Quatre-Temps de Pentecôte",
+    "season": "pentecote",
+    "temporal_class": "feria",
+    "rank": "I classe",
+    "priority": 1,
+    "color": "rouge",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": false,
+    "type": "ember_day",
+    "liturgical_phase": "octave_pentecote",
+    "features": {
+      "octave": true,
+      "ember_day": true,
+      "preface": "pentecote"
+    },
+    "notes": "Premier des Quatre-Temps de Pentecôte (mercredi)."
+  },
+  {
+    "id": "pentecost_thursday",
+    "title": "Jeudi de Pentecôte",
+    "season": "pentecote",
+    "temporal_class": "feria",
+    "rank": "I classe",
+    "priority": 1,
+    "color": "rouge",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": false,
+    "type": "temporal_feria",
+    "liturgical_phase": "octave_pentecote",
+    "features": {
+      "octave": true,
+      "preface": "pentecote"
+    },
+    "notes": "Férie festive de l’Octave."
+  },
+  {
+    "id": "pentecost_friday",
+    "title": "Vendredi des Quatre-Temps de Pentecôte",
+    "season": "pentecote",
+    "temporal_class": "feria",
+    "rank": "I classe",
+    "priority": 1,
+    "color": "rouge",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": false,
+    "type": "ember_day",
+    "liturgical_phase": "octave_pentecote",
+    "features": {
+      "octave": true,
+      "ember_day": true,
+      "preface": "pentecote"
+    },
+    "notes": "Quatre-Temps (vendredi) ; jour traditionnel d’ordination."
+  },
+  {
+    "id": "pentecost_saturday",
+    "title": "Samedi des Quatre-Temps de Pentecôte",
+    "season": "pentecote",
+    "temporal_class": "feria",
+    "rank": "I classe",
+    "priority": 1,
+    "color": "rouge",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": false,
+    "type": "ember_day",
+    "liturgical_phase": "octave_pentecote",
+    "features": {
+      "octave": true,
+      "ember_day": true,
+      "preface": "pentecote"
+    },
+    "notes": "Clôture solennelle de l’Octave de Pentecôte."
+  },
+  {
+    "id": "trinity_sunday",
+    "title": "Fête de la Très Sainte Trinité",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 1,
+    "rank": "I classe",
+    "priority": 1,
+    "color": "blanc",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "trinite",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Ce dimanche ouvre le Temps après la Pentecôte."
+  }
+]

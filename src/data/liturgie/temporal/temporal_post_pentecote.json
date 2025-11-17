@@ -1,0 +1,421 @@
+[
+  {
+    "id": "post_pentecost_sunday_3",
+    "title": "IIIe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 3,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_3",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Dimanche vert du Temps après la Pentecôte ; usage général du Kyriale XI ou VIII selon coutume."
+  },
+  {
+    "id": "post_pentecost_sunday_4",
+    "title": "IVe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 4,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_4",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Dimanche de IIe classe ; lectures sur la barque de Pierre."
+  },
+  {
+    "id": "post_pentecost_sunday_5",
+    "title": "Ve dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 5,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_5",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Évangile : réconciliation avant l’offrande."
+  },
+  {
+    "id": "post_pentecost_sunday_6",
+    "title": "VIe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 6,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_6",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Multiplication des pains dans l’Évangile."
+  },
+  {
+    "id": "post_pentecost_sunday_7",
+    "title": "VIIe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 7,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_7",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Évangile : Parabole des bons et mauvais fruits."
+  },
+  {
+    "id": "post_pentecost_sunday_8",
+    "title": "VIIIe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 8,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_8",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Évangile : prudence dans l’administration des biens."
+  },
+  {
+    "id": "post_pentecost_sunday_9",
+    "title": "IXe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 9,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_9",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Évangile : Jésus pleure sur Jérusalem."
+  },
+  {
+    "id": "post_pentecost_sunday_10",
+    "title": "Xe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 10,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_10",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Évangile du pharisien et du publicain."
+  },
+  {
+    "id": "post_pentecost_sunday_11",
+    "title": "XIe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 11,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_11",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Évangile : guérison du sourd-muet par Jésus (Ephpheta)."
+  },
+  {
+    "id": "post_pentecost_sunday_12",
+    "title": "XIIe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 12,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_12",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Évangile du Bon Samaritain."
+  },
+  {
+    "id": "post_pentecost_sunday_13",
+    "title": "XIIIe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 13,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_13",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Évangile : les dix lépreux et le seul reconnaissant."
+  },
+  {
+    "id": "post_pentecost_sunday_14",
+    "title": "XIVe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 14,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_14",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Évangile : nul ne peut servir deux maîtres."
+  },
+  {
+    "id": "post_pentecost_sunday_15",
+    "title": "XVe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 15,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_15",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Évangile : résurrection du fils de la veuve de Naïm."
+  },
+  {
+    "id": "post_pentecost_sunday_16",
+    "title": "XVIe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 16,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_16",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Évangile : guérison d’un hydropique le jour du sabbat."
+  },
+  {
+    "id": "post_pentecost_sunday_17",
+    "title": "XVIIe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 17,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_17",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Évangile : le plus grand commandement."
+  },
+  {
+    "id": "post_pentecost_sunday_18",
+    "title": "XVIIIe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 18,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_18",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Évangile : guérison du paralytique et pouvoir de remettre les péchés."
+  },
+  {
+    "id": "post_pentecost_sunday_19",
+    "title": "XIXe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 19,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_19",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Évangile : parabole du roi et du vêtement de noces."
+  },
+  {
+    "id": "post_pentecost_sunday_20",
+    "title": "XXe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 20,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_20",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Évangile : guérison du fils d’un officier royal."
+  },
+  {
+    "id": "post_pentecost_sunday_21",
+    "title": "XXIe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 21,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_21",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Évangile : parabole du serviteur impitoyable."
+  },
+  {
+    "id": "post_pentecost_sunday_22",
+    "title": "XXIIe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 22,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_22",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Évangile : rendre à César ce qui est à César."
+  },
+  {
+    "id": "post_pentecost_sunday_23",
+    "title": "XXIIIe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 23,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_23",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Évangile : guérison de l’hémorroïsse et résurrection de la fille de Jaïre."
+  },
+  {
+    "id": "post_pentecost_sunday_24",
+    "title": "XXIVe dimanche après la Pentecôte",
+    "season": "post_pentecote",
+    "temporal_class": "sunday",
+    "sunday_index": 24,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "vert",
+    "has_gloria": true,
+    "has_alleluia": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "post_pentecote_24",
+    "features": {
+      "preface": "trinite"
+    },
+    "notes": "Évangile eschatologique (fin des temps). Toujours célébré, même si des dimanches antérieurs manquent certaines années."
+  }
+]
+

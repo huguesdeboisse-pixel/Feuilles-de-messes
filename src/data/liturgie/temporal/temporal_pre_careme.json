@@ -1,0 +1,93 @@
+[
+  {
+    "id": "septuagesima_sunday",
+    "title": "Dimanche de la Septuagésime",
+    "season": "pre_careme",
+    "temporal_class": "sunday",
+    "sunday_index": 1,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "violet",
+    "has_gloria": false,
+    "has_alleluia": false,
+    "has_tractus": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "debut_pre_careme",
+    "features": {
+      "suppress_alleluia": true,
+      "use_tractus": true,
+      "preface": "commun",
+      "ferial_privilege": "none"
+    },
+    "notes": "Début de la Pré-Carême ; suppression solennelle de l’Alleluia. Dimanche de IIe classe."
+  },
+  {
+    "id": "sexagesima_sunday",
+    "title": "Dimanche de la Sexagésime",
+    "season": "pre_careme",
+    "temporal_class": "sunday",
+    "sunday_index": 2,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "violet",
+    "has_gloria": false,
+    "has_alleluia": false,
+    "has_tractus": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "pre_careme_milieu",
+    "features": {
+      "suppress_alleluia": true,
+      "use_tractus": true,
+      "preface": "commun",
+      "ferial_privilege": "none"
+    },
+    "notes": "Dimanche de IIe classe ; prolongation de la pénitence avant le Carême."
+  },
+  {
+    "id": "quinquagesima_sunday",
+    "title": "Dimanche de la Quinquagésime",
+    "season": "pre_careme",
+    "temporal_class": "sunday",
+    "sunday_index": 3,
+    "rank": "II classe",
+    "priority": 2,
+    "color": "violet",
+    "has_gloria": false,
+    "has_alleluia": false,
+    "has_tractus": true,
+    "has_credo": true,
+    "type": "temporal_sunday",
+    "liturgical_phase": "fin_pre_careme",
+    "features": {
+      "suppress_alleluia": true,
+      "use_tractus": true,
+      "preface": "commun",
+      "ferial_privilege": "none"
+    },
+    "notes": "Dimanche de IIe classe qui précède immédiatement le Mercredi des Cendres."
+  },
+  {
+    "id": "pre_careme_feria",
+    "title": "Férie de la Pré-Carême",
+    "season": "pre_careme",
+    "temporal_class": "feria",
+    "rank": "Férie III classe",
+    "priority": 3,
+    "color": "violet",
+    "has_gloria": false,
+    "has_alleluia": false,
+    "has_tractus": true,
+    "has_credo": false,
+    "type": "temporal_feria",
+    "liturgical_phase": "feria_pre_careme",
+    "features": {
+      "suppress_alleluia": true,
+      "use_tractus": true,
+      "preface": "commun",
+      "ferial_privilege": "none"
+    },
+    "notes": "Féries pénitentielles ; l’Alleluia reste supprimé ; usage du Tractus."
+  }
+]
