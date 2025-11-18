@@ -1,4 +1,8 @@
-import { computeLiturgicalDay } from "./src/data/liturgie/engine/computeLiturgicalDay.js?v=2001";
+import computeLiturgicalDay from "./src/data/liturgie/engine/computeLiturgicalDay.js";
+
+console.log(">>> IMPORT computeLiturgicalDay =", computeLiturgicalDay);
+window.computeLiturgicalDay = computeLiturgicalDay;
+console.log(">>> EXPORT vers window OK");
 window.computeLiturgicalDay = computeLiturgicalDay;
 
 document.addEventListener("DOMContentLoaded", () => {
