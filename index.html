@@ -2,56 +2,53 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Feuille de Messe</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="app">
-    <!-- Colonne gauche : paramètres + suggestions -->
-    <aside class="left-panel">
-      <h1>Feuille de Messe</h1>
+  <header>
+    <h1>Feuille de Messe</h1>
+  </header>
 
-      <div class="field">
-        <label for="dateInput">Date</label>
-        <input type="date" id="dateInput" />
-      </div>
+  <!-- Bloc liturgique : fête du jour -->
+  <section id="liturgical-day" class="liturgical-card">
+    <div id="liturgical-color" class="liturgical-color-badge"></div>
+    <div class="liturgical-text">
+      <h2 id="fete-titre">Fête du jour</h2>
+      <p id="fete-saint"></p>
+      <p id="fete-details" class="liturgical-details"></p>
+    </div>
+  </section>
 
-      <div class="field">
-        <label for="riteSelect">Rite</label>
-        <select id="riteSelect">
-          <option value="ordinaire" selected>Ordinaire</option>
-          <option value="extraordinaire">Extraordinaire</option>
-        </select>
-      </div>
+  <!-- Interface générateur -->
+  <main>
+    <section class="parametres">
+      <h2>Paramètres</h2>
 
-      <div class="field">
-        <label for="carnetSelect">Carnet de chants</label>
-        <select id="carnetSelect"></select>
-      </div>
+      <label for="date-input">Date :</label>
+      <input type="date" id="date-input" />
 
-      <hr />
+      <label for="rite-select">Rite :</label>
+      <select id="rite-select">
+        <option value="extraordinaire">Rite Extraordinaire</option>
+        <option value="ordinaire">Rite Ordinaire</option>
+      </select>
 
-      <div id="suggestions"></div>
-    </aside>
+      <button id="generate">Générer</button>
 
-    <!-- Colonne droite : feuille -->
-    <main class="sheet">
-      <section class="paper">
-        <header class="sheet-header">
-          <div class="meta">
-            <span id="dateLisible"></span>
-            <span id="seasonPill" class="pill">—</span>
-            <span id="ritePill" class="pill outline">Rite</span>
-          </div>
-          <h2 id="titreMesse" class="mass-title">Feuille de Messe</h2>
-        </header>
+      <button id="sommaire-chants" class="btn-secondary">Sommaire des chants</button>
+    </section>
 
-        <article id="sheetContent" class="sheet-content"></article>
-      </section>
-    </main>
-  </div>
+    <section class="feuille-generée">
+      <h2>Feuille de messe générée</h2>
+      <div id="feuille-output"></div>
 
-  <script src="script.js"></script>
+      <button id="download-pdf" class="btn-download">Télécharger la feuille de messe</button>
+    </section>
+  </main>
+
+  <script type="module" src="script.js"></script>
 </body>
 </html>
+
