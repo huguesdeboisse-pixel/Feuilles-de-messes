@@ -1,76 +1,110 @@
-:root{
-  --vert:#317a35;
-  --violet:#6a1b9a;
-  --rouge:#b71c1c;
-  --or:#c4a000;
-  --gris:#e5e7eb;
-  --fond:#fafafa;
-  --noir:#222;
-  font-family:"Segoe UI","Inter",system-ui,-apple-system,sans-serif;
+/* ===== RESET SIMPLE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{background:var(--fond);color:var(--noir);margin:0}
-
-.app{
-  display:grid;
-  grid-template-columns:420px 1fr;
-  gap:24px;
-  max-width:1600px;
-  margin:0 auto;
-  padding:24px;
+body {
+    font-family: system-ui, sans-serif;
+    background: #f7f7f7;
+    color: #222;
 }
 
-/* Colonne gauche */
-.left-panel{
-  background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08);
-  padding:20px;display:flex;flex-direction:column;resize:horizontal;overflow:auto;min-width:320px;max-width:720px;
+/* ===== LAYOUT 2 COLONNES ===== */
+#app {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: 100vh;
 }
-h1{font-size:1.6rem;margin:0 0 16px}
-.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
-label{font-weight:600}
-input[type="date"],select{height:38px;border:1px solid var(--gris);border-radius:8px;padding:0 10px}
-hr{border:none;border-top:1px solid #eee;margin:16px 0}
 
-/* Suggestions */
-.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.section-header h2{font-size:1.05rem;margin:0}
-.btn-ghost{background:#f5f5f5;border:1px solid var(--gris);border-radius:8px;padding:6px 10px;cursor:pointer}
-.btn-ghost:hover{background:#eee}
+/* ===== SIDEBAR ===== */
+.sidebar {
+    background: #ffffff;
+    border-right: 1px solid #ddd;
+    padding: 24px;
+}
 
-.cards{display:flex;flex-direction:column;gap:8px}
-.card{border:1px solid var(--gris);border-radius:10px;padding:10px;background:#fdfdfd;cursor:pointer;transition:background .2s,transform .1s}
-.card:hover{background:#faf7ee;transform:translateY(-1px)}
-.card.selected{background:#e4f4e2;border-color:var(--vert)}
-.card h3{margin:4px 0;font-size:.98rem}
+.sidebar h2 {
+    margin-bottom: 16px;
+}
 
-/* Barre d'action */
-.step-controls{display:flex;align-items:center;gap:10px;justify-content:space-between;margin-top:12px}
-.btn{border:none;border-radius:8px;padding:8px 14px;color:#fff;background:var(--vert);cursor:pointer;box-shadow:0 2px 5px rgba(0,0,0,.12)}
-.btn:hover{filter:brightness(.95)}
-.btn.secondary{background:var(--violet)}
+.sidebar label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 4px;
+}
 
-/* Colonne droite */
-.sheet{}
-.paper{background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:32px;min-height:85vh}
+.sidebar input,
+.sidebar select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+}
 
-.sheet-header{text-align:center;margin-bottom:18px}
-.meta{color:#666;margin-bottom:6px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.mass-title{margin:6px 0 8px;font-size:1.8rem;font-weight:700}
+#computeBtn {
+    margin-top: 16px;
+    width: 100%;
+    padding: 10px;
+    background: #444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-/* Pilules de couleur */
-.pill{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid transparent;font-size:.85rem}
-.pill.outline{border-color:#ddd;color:#444;background:#fff}
-.pill.violet{background:#f3e9f9;color:var(--violet)}
-.pill.vert{background:#e9f6ea;color:var(--vert)}
-.pill.rouge{background:#fde8e8;color:var(--rouge)}
-.pill.or{background:#fff8e1;color:var(--or)}
+#computeBtn:hover {
+    background: #000;
+}
 
-/* Couleur dominante (facultatif si vous souhaitez varier le thème global) */
-[data-couleur="violet"] .mass-title{color:var(--violet)}
-[data-couleur="vert"] .mass-title{color:var(--vert)}
-[data-couleur="rouge"] .mass-title{color:var(--rouge)}
-[data-couleur="or"] .mass-title{color:var(--or)}
+.small-info {
+    font-size: 12px;
+    color: #666;
+    margin-top: 16px;
+}
 
-/* Contenu de la feuille */
-.sheet-content h3{margin-top:1.2em;color:var(--vert);font-size:1.1rem}
-.sheet-content p{line-height:1.6;margin:.4em 0}
+/* ===== FEUILLE PRINCIPALE ===== */
+.main {
+    padding: 32px;
+    overflow-y: auto;
+}
+
+/* ===== CARTE LITURGIQUE ===== */
+.fete-card {
+    display: flex;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    max-width: 700px;
+}
+
+/* Barre verticale couleur liturgique */
+.color-bar {
+    width: 12px;
+}
+
+/* Couleurs liturgiques strictes */
+.color-violet { background: #5c2e91; }
+.color-vert   { background: #0a662f; }
+.color-blanc  { background: #ffffff; }
+.color-rouge  { background: #a00000; }
+.color-noir   { background: #000000; }
+
+/* Contenu principal */
+.fete-content {
+    padding: 24px;
+}
+
+.fete-content h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.rank, .season, .commem {
+    margin-top: 6px;
+    font-size: 16px;
+}
+
+.hidden { display: none; }
