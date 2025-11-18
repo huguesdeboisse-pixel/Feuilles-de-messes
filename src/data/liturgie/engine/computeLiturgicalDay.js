@@ -3,8 +3,8 @@
 // Moteur liturgique simplifié : charge temporal + sanctoral + renvoie la fête.
 // -----------------------------------------------------------------------------
 
-const PATH_TEMPORAL  = "/src/data/liturgie/temporal.json";
-const PATH_SANCTORAL = "/src/data/liturgie/sanctoral.json";
+const PATH_TEMPORAL  = "src/data/liturgie/temporal.json";
+const PATH_SANCTORAL = "src/data/liturgie/sanctoral.json";
 
 let temporal = null;
 let sanctoral = null;
@@ -95,3 +95,4 @@ export async function computeLiturgicalDay(dateInput, rite = "extra") {
 if (typeof window !== "undefined") {
     window.computeLiturgicalDay = computeLiturgicalDay;
 }
+
