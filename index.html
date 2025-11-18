@@ -54,5 +54,12 @@
 </div>
 <script type="module" src="src/data/liturgie/engine/computeLiturgicalDay.js"></script>
 <script src="script.js"></script>
+    <script type="module">
+  import { computeLiturgicalDay } from "./src/data/liturgie/engine/computeLiturgicalDay.js";
+  window.computeLiturgicalDay = computeLiturgicalDay;
+</script>
+
+<script src="script.js"></script>
+
 </body>
 </html>
