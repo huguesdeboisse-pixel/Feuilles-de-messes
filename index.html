@@ -9,7 +9,7 @@
 <body>
 <div id="app">
 
-    <!-- ===== COLONNE PARAMÈTRES ===== -->
+    <!-- ===== COLONNE PARAMETRES ===== -->
     <aside class="sidebar">
 
         <h2>Paramètres</h2>
@@ -28,12 +28,11 @@
         <hr>
 
         <p class="small-info">
-            Temporal et Sanctoral entièrement hors-ligne.<br>
-            Appuyez sur Générer pour tester votre moteur liturgique.
+            Temporal & Sanctoral hors-ligne.<br>
+            Cliquez sur Générer pour tester le moteur.
         </p>
 
     </aside>
-
 
     <!-- ===== COLONNE FEUILLE ===== -->
     <main class="main">
@@ -52,13 +51,11 @@
     </main>
 
 </div>
-<script type="module" src="src/data/liturgie/engine/computeLiturgicalDay.js"></script>
-<script src="script.js"></script>
-    <script type="module">
-  import { computeLiturgicalDay } from "./src/data/liturgie/engine/computeLiturgicalDay.js";
-  window.computeLiturgicalDay = computeLiturgicalDay;
-</script>
 
+<!-- ===== MODULE : moteur liturgique ===== -->
+<script type="module" src="src/data/liturgie/engine/computeLiturgicalDay.js"></script>
+
+<!-- ===== Script principal ===== -->
 <script src="script.js"></script>
 
 </body>
