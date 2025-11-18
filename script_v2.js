@@ -1,4 +1,5 @@
 import { computeLiturgicalDay } from "./src/data/liturgie/engine/computeLiturgicalDay.js?v=2001";
+window.computeLiturgicalDay = computeLiturgicalDay;
 
 document.addEventListener("DOMContentLoaded", () => {
 
