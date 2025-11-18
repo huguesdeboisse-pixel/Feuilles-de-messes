@@ -48,7 +48,7 @@
   { "month":2,"day":23,"title":"Saint Pierre Damien (ancienne date) / Saint Polycarpe (locale)","rank":"Férie","color":"blanc" },
   { "month":2,"day":24,"title":"Saint Mathias, apôtre","rank":"II classe","color":"rouge" },
   { "month":2,"day":27,"title":"Saint Léandre, évêque","rank":"III classe","color":"blanc" },
-  { "month":2,"day":28,"title":"Saint Gabriel de l’Addolorata","rank":"III classe","color":"blanc" }
+  { "month":2,"day":28,"title":"Saint Gabriel de l’Addolorata","rank":"III classe","color":"blanc" },
 
   { "month":3,"day":1,"title":"Saint Félix II, pape et martyr","rank":"III classe","color":"rouge" },
   { "month":3,"day":2,"title":"Saint Simplice, pape","rank":"III classe","color":"blanc" },
@@ -100,7 +100,7 @@
   { "month":4,"day":27,"title":"Saint Pierre Canisius, confesseur et docteur","rank":"III classe","color":"blanc" },
   { "month":4,"day":28,"title":"Saint Paul de la Croix, confesseur","rank":"III classe","color":"blanc" },
   { "month":4,"day":29,"title":"Sainte Catherine de Sienne, vierge","rank":"III classe","color":"blanc" },
-  { "month":4,"day":30,"title":"Saints Eusèbe et Compagnons, martyrs","rank":"III classe","color":"rouge" }
+  { "month":4,"day":30,"title":"Saints Eusèbe et Compagnons, martyrs","rank":"III classe","color":"rouge" },
 
   { "month":5,"day":1,"title":"Saint Joseph Artisan","rank":"I classe","color":"blanc" },
   { "month":5,"day":2,"title":"Saint Athanase, évêque et docteur","rank":"III classe","color":"blanc" },
@@ -162,7 +162,7 @@
   { "month":6,"day":27,"title":"Notre-Dame du Perpétuel Secours","rank":"III classe","color":"blanc" },
   { "month":6,"day":28,"title":"Saint Irénée, évêque et martyr","rank":"III classe","color":"rouge" },
   { "month":6,"day":29,"title":"Saints Pierre et Paul, apôtres","rank":"I classe","color":"rouge" },
-  { "month":6,"day":30,"title":"Saints Protomartyrs de la Sainte Église Romaine","rank":"III classe","color":"rouge" }
+  { "month":6,"day":30,"title":"Saints Protomartyrs de la Sainte Église Romaine","rank":"III classe","color":"rouge" },
 
   { "month":7,"day":1,"title":"Le Très Précieux Sang de Notre-Seigneur Jésus-Christ","rank":"I classe","color":"rouge" },
   { "month":7,"day":2,"title":"Visitation de la Bienheureuse Vierge Marie","rank":"II classe","color":"blanc" },
@@ -226,7 +226,7 @@
   { "month":8,"day":28,"title":"Saint Augustin, évêque et docteur","rank":"III classe","color":"blanc" },
   { "month":8,"day":29,"title":"Décollation de Saint Jean-Baptiste","rank":"III classe","color":"rouge" },
   { "month":8,"day":30,"title":"Saints Félix et Adaucte, martyrs","rank":"III classe","color":"rouge" },
-  { "month":8,"day":31,"title":"Saint Raymund Nonnat","rank":"III classe","color":"blanc" }
+  { "month":8,"day":31,"title":"Saint Raymund Nonnat","rank":"III classe","color":"blanc" },
 
   { "month":9,"day":1,"title":"Saint Gilles, abbé","rank":"III classe","color":"blanc" },
   { "month":9,"day":2,"title":"Saint Étienne, roi de Hongrie","rank":"III classe","color":"blanc" },
@@ -289,7 +289,7 @@
   { "month":10,"day":28,"title":"Saints Simon et Jude, apôtres","rank":"II classe","color":"rouge" },
   { "month":10,"day":29,"title":"Saint Narcisse, évêque","rank":"III classe","color":"blanc" },
   { "month":10,"day":30,"title":"Saint Marcellus, martyr","rank":"III classe","color":"rouge" },
-  { "month":10,"day":31,"title":"Vigile de Toussaint","rank":"II classe","color":"violet" }
+  { "month":10,"day":31,"title":"Vigile de Toussaint","rank":"II classe","color":"violet" },
 
   { "month":11,"day":1,"title":"Toussaint","rank":"I classe","color":"blanc" },
   { "month":11,"day":2,"title":"Commémoration de tous les fidèles défunts","rank":"I classe","color":"noir" },
