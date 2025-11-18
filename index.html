@@ -1,54 +1,58 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Feuille de Messe</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>Feuille de Messe</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <header>
-    <h1>Feuille de Messe</h1>
-  </header>
+<div id="app">
 
-  <!-- Bloc liturgique : fête du jour -->
-  <section id="liturgical-day" class="liturgical-card">
-    <div id="liturgical-color" class="liturgical-color-badge"></div>
-    <div class="liturgical-text">
-      <h2 id="fete-titre">Fête du jour</h2>
-      <p id="fete-saint"></p>
-      <p id="fete-details" class="liturgical-details"></p>
-    </div>
-  </section>
+    <!-- ===== COLONNE PARAMÈTRES ===== -->
+    <aside class="sidebar">
 
-  <!-- Interface générateur -->
-  <main>
-    <section class="parametres">
-      <h2>Paramètres</h2>
+        <h2>Paramètres</h2>
 
-      <label for="date-input">Date :</label>
-      <input type="date" id="date-input" />
+        <label for="dateInput">Date :</label>
+        <input type="date" id="dateInput">
 
-      <label for="rite-select">Rite :</label>
-      <select id="rite-select">
-        <option value="extraordinaire">Rite Extraordinaire</option>
-        <option value="ordinaire">Rite Ordinaire</option>
-      </select>
+        <label for="rite">Rite :</label>
+        <select id="rite">
+            <option value="extra">Extraordinaire (1962)</option>
+            <option value="ordo">Ordinaire</option>
+        </select>
 
-      <button id="generate">Générer</button>
+        <button id="computeBtn">Générer</button>
 
-      <button id="sommaire-chants" class="btn-secondary">Sommaire des chants</button>
-    </section>
+        <hr>
 
-    <section class="feuille-generée">
-      <h2>Feuille de messe générée</h2>
-      <div id="feuille-output"></div>
+        <p class="small-info">
+            Temporal et Sanctoral entièrement hors-ligne.<br>
+            Appuyez sur Générer pour tester votre moteur liturgique.
+        </p>
 
-      <button id="download-pdf" class="btn-download">Télécharger la feuille de messe</button>
-    </section>
-  </main>
+    </aside>
 
-  <script type="module" src="script.js"></script>
+
+    <!-- ===== COLONNE FEUILLE ===== -->
+    <main class="main">
+
+        <section id="feteBlock" class="fete-card hidden">
+            <div id="liturgicalColorBar" class="color-bar"></div>
+
+            <div class="fete-content">
+                <h1 id="feteTitle"></h1>
+                <p id="feteRank" class="rank"></p>
+                <p id="feteSeason" class="season"></p>
+                <p id="commemorations" class="commem"></p>
+            </div>
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
-
